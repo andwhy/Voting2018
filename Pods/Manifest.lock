@@ -1,12 +1,27 @@
 PODS:
+  - Alamofire (4.6.0)
+  - KeychainSwift (10.0.0)
+  - Kingfisher (4.6.1)
+  - SwiftHEXColors (1.1.1)
+  - SwiftyJSON (4.0.0)
   - SwiftyVK (3.1.2)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.5)
+  - KeychainSwift (~> 10.0)
+  - Kingfisher (~> 4.0)
+  - SwiftHEXColors
+  - SwiftyJSON
   - SwiftyVK
 
 SPEC CHECKSUMS:
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  KeychainSwift: f9f7910449a0c0fd2cabc889121530dd2c477c33
+  Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
+  SwiftHEXColors: 9681e756dc78a99ae97f277165b3f5e33b087553
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   SwiftyVK: b32b7587c208f5d74527d686296f8d6c58436f8f
 
-PODFILE CHECKSUM: f8f39c08a40a1a6aa89a4a7c566fc478db8d120d
+PODFILE CHECKSUM: bc8243101dc7db84a0dde00347ceb768bb79e8ce
 
 COCOAPODS: 1.3.1

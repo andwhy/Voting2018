@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import SwiftyVK
+import SwiftyJSON
 
 class AuthStartVC: UIViewController {
 
     @IBOutlet var buttonVKAuth: UIButton!
-    @IBOutlet var buttonOKAuth: UIButton!
     
     
     //MARK: Lifecycle
@@ -25,9 +26,50 @@ class AuthStartVC: UIViewController {
     //MARK: Actions
     
     @IBAction func actionButtonVKAuth(_ sender: Any) {
+
+        VK.sessions.default.logIn(
+            onSuccess: { _ in
+                self.getUserInfoAndPushNexScreen()
+            },
+            onError: {
+                self.getUserInfoAndPushNexScreen()
+                print("error result auth \($0)")
+            }
+        )
     }
     
-    @IBAction func actionButtonOKAuth(_ sender: Any) {
+    
+    //MARK: Helpers
+    
+    func getUserInfoAndPushNexScreen() {
+        VK.API.Users.get([
+            .fields: "sex,bdate,city,country"
+            ])
+            .onSuccess { result in
+                let json = try JSON(data: result)
+                print("success result get info \(json[0])")
+                
+                DispatchQueue.main.async {
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    
+                    if let bdate = json[0]["bdate"].string {
+                        let byearString = String(describing: bdate.split(separator: ".").last!)
+                        let byear = Int(byearString)
+                        let year = Calendar.current.component(.year, from: Date())
+//                        print(year - byear!)
+                        appDelegate.user?.age = year - byear!
+                    }
+                    
+                    appDelegate.user?.city = json[0]["city"]["title"].stringValue
+                    appDelegate.user?.country = json[0]["country"]["title"].stringValue
+                    appDelegate.user?.sex = json[0]["sex"].intValue
+                    appDelegate.user?.saveToKeychain()
+                }
+                
+            } .onError {
+                print("error result get info \($0)")
+            }.send()
+        
     }
     
 }

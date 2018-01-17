@@ -38,17 +38,10 @@
                                 <rect key="frame" x="0.0" y="308.5" width="375" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbg-Ub-dzR">
-                                        <rect key="frame" x="0.0" y="10" width="187.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="10" width="375" height="30"/>
                                         <state key="normal" title="VK"/>
                                         <connections>
                                             <action selector="actionButtonVKAuth:" destination="Apc-2r-VaY" eventType="touchUpInside" id="XYB-Um-cnz"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BqO-bo-5M8">
-                                        <rect key="frame" x="187.5" y="10" width="187.5" height="30"/>
-                                        <state key="normal" title="Однокласники"/>
-                                        <connections>
-                                            <action selector="actionButtonOKAuth:" destination="Apc-2r-VaY" eventType="touchUpInside" id="qoy-oZ-yLZ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -68,7 +61,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Авторизация" id="X2W-dC-3Lb"/>
                     <connections>
-                        <outlet property="buttonOKAuth" destination="BqO-bo-5M8" id="nog-mI-Nat"/>
                         <outlet property="buttonVKAuth" destination="jbg-Ub-dzR" id="qQJ-x0-9P0"/>
                     </connections>
                 </viewController>

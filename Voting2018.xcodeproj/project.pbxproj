@@ -15,6 +15,12 @@
 		C766ACC6200C01DD008EB0DE /* Authorization.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C766ACC5200C01DD008EB0DE /* Authorization.storyboard */; };
 		C766ACC8200C0277008EB0DE /* AuthStartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C766ACC7200C0277008EB0DE /* AuthStartVC.swift */; };
 		C766ACCB200C0377008EB0DE /* ScreensManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C766ACCA200C0377008EB0DE /* ScreensManager.swift */; };
+		C773CAB2200E5B180048C952 /* VKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C773CAB1200E5B180048C952 /* VKDelegate.swift */; };
+		C773CAB5200E666E0048C952 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C773CAB4200E666E0048C952 /* NetworkManager.swift */; };
+		C773CAB8200E68130048C952 /* NetworkDataStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C773CAB7200E68130048C952 /* NetworkDataStructs.swift */; };
+		C773CABB200E6F540048C952 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C773CABA200E6F540048C952 /* Main.storyboard */; };
+		C773CABE200E6FD90048C952 /* CandidatesSelectionCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C773CABD200E6FD90048C952 /* CandidatesSelectionCVC.swift */; };
+		C773CAC1200E72CC0048C952 /* CandidatesSelectionCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C773CAC0200E72CC0048C952 /* CandidatesSelectionCVCell.swift */; };
 		E4DE9FE1706D7AE3BE3FF2BA /* Pods_Voting2018.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3849E653848B1BC45AC04B50 /* Pods_Voting2018.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +51,12 @@
 		C766ACC5200C01DD008EB0DE /* Authorization.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authorization.storyboard; sourceTree = "<group>"; };
 		C766ACC7200C0277008EB0DE /* AuthStartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStartVC.swift; sourceTree = "<group>"; };
 		C766ACCA200C0377008EB0DE /* ScreensManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensManager.swift; sourceTree = "<group>"; };
+		C773CAB1200E5B180048C952 /* VKDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKDelegate.swift; sourceTree = "<group>"; };
+		C773CAB4200E666E0048C952 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C773CAB7200E68130048C952 /* NetworkDataStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataStructs.swift; sourceTree = "<group>"; };
+		C773CABA200E6F540048C952 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C773CABD200E6FD90048C952 /* CandidatesSelectionCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidatesSelectionCVC.swift; sourceTree = "<group>"; };
+		C773CAC0200E72CC0048C952 /* CandidatesSelectionCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidatesSelectionCVCell.swift; sourceTree = "<group>"; };
 		FC83B9203558047742786596 /* Pods_Voting2018UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Voting2018UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -104,6 +116,8 @@
 			children = (
 				C766ACA2200BFEFC008EB0DE /* AppDelegate.swift */,
 				C766ACC2200C01BB008EB0DE /* Authorization */,
+				C773CABA200E6F540048C952 /* Main.storyboard */,
+				C773CAB9200E6F440048C952 /* Candidates Selection */,
 				C766ACC9200C0365008EB0DE /* Managers */,
 				C766ACA9200BFEFC008EB0DE /* Assets.xcassets */,
 				C766ACAB200BFEFC008EB0DE /* LaunchScreen.storyboard */,
@@ -150,8 +164,60 @@
 			isa = PBXGroup;
 			children = (
 				C766ACCA200C0377008EB0DE /* ScreensManager.swift */,
+				C773CAAF200E5A9A0048C952 /* VKManagers */,
+				C773CAB3200E66610048C952 /* Network */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		C773CAAF200E5A9A0048C952 /* VKManagers */ = {
+			isa = PBXGroup;
+			children = (
+				C773CAB1200E5B180048C952 /* VKDelegate.swift */,
+			);
+			path = VKManagers;
+			sourceTree = "<group>";
+		};
+		C773CAB3200E66610048C952 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C773CAB6200E67FD0048C952 /* Structs */,
+				C773CAB4200E666E0048C952 /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		C773CAB6200E67FD0048C952 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				C773CAB7200E68130048C952 /* NetworkDataStructs.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
+		C773CAB9200E6F440048C952 /* Candidates Selection */ = {
+			isa = PBXGroup;
+			children = (
+				C773CABF200E72AC0048C952 /* Views */,
+				C773CABC200E6FB00048C952 /* View Controllers */,
+			);
+			path = "Candidates Selection";
+			sourceTree = "<group>";
+		};
+		C773CABC200E6FB00048C952 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C773CABD200E6FD90048C952 /* CandidatesSelectionCVC.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		C773CABF200E72AC0048C952 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C773CAC0200E72CC0048C952 /* CandidatesSelectionCVCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FBADA752DC29A231524DF74B /* Frameworks */ = {
@@ -255,6 +321,7 @@
 				C766ACC6200C01DD008EB0DE /* Authorization.storyboard in Resources */,
 				C766ACAD200BFEFC008EB0DE /* LaunchScreen.storyboard in Resources */,
 				C766ACAA200BFEFC008EB0DE /* Assets.xcassets in Resources */,
+				C773CABB200E6F540048C952 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,10 +408,20 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Voting2018/Pods-Voting2018-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftHEXColors/SwiftHEXColors.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyVK/SwiftyVK.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHEXColors.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyVK.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,8 +452,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C766ACA3200BFEFC008EB0DE /* AppDelegate.swift in Sources */,
+				C773CAC1200E72CC0048C952 /* CandidatesSelectionCVCell.swift in Sources */,
+				C773CAB8200E68130048C952 /* NetworkDataStructs.swift in Sources */,
 				C766ACCB200C0377008EB0DE /* ScreensManager.swift in Sources */,
+				C773CAB5200E666E0048C952 /* NetworkManager.swift in Sources */,
 				C766ACC8200C0277008EB0DE /* AuthStartVC.swift in Sources */,
+				C773CAB2200E5B180048C952 /* VKDelegate.swift in Sources */,
+				C773CABE200E6FD90048C952 /* CandidatesSelectionCVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

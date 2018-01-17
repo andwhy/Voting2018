@@ -6,6 +6,11 @@ target 'Voting2018' do
   use_frameworks!
 
 pod 'SwiftyVK'
+pod 'Alamofire', '~> 4.5'
+pod 'SwiftHEXColors'
+pod 'SwiftyJSON'
+pod 'Kingfisher', '~> 4.0'
+pod 'KeychainSwift', '~> 10.0'
 
   # Pods for Voting2018
 
