@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="keV-0A-Mwg" kind="relationship" relationship="rootViewController" id="veh-WO-2XC"/>
+                        <segue destination="Ab1-F5-IQq" kind="relationship" relationship="rootViewController" id="VbZ-EK-8Xl"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M4o-ZL-oDu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -156,6 +157,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0J8-Ln-YkE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-109.59999999999999" y="-545.57721139430294"/>
+        </scene>
+        <!--Overall StatisticsVC-->
+        <scene sceneID="yfq-i1-CYR">
+            <objects>
+                <viewController storyboardIdentifier="OverallStatisticsVC" id="Ab1-F5-IQq" customClass="OverallStatisticsVC" customModule="Voting2018" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qi8-C0-YaL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ii-Ud-9fG" customClass="PieChart" customModule="PieCharts">
+                                <rect key="frame" x="20" y="74" width="335" height="335"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="6Ii-Ud-9fG" secondAttribute="height" multiplier="1:1" id="hEu-5o-tTg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Ii-Ud-9fG" firstAttribute="leading" secondItem="Qi8-C0-YaL" secondAttribute="leading" constant="20" id="Rbv-aD-98r"/>
+                            <constraint firstItem="6Ii-Ud-9fG" firstAttribute="top" secondItem="aiJ-LC-YcE" secondAttribute="top" constant="10" id="tei-5D-ohg"/>
+                            <constraint firstAttribute="trailing" secondItem="6Ii-Ud-9fG" secondAttribute="trailing" constant="20" id="wit-8D-f0l"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aiJ-LC-YcE"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zTG-h1-jgC"/>
+                    <connections>
+                        <outlet property="viewPieChart" destination="6Ii-Ud-9fG" id="BDb-pn-keZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jQI-GY-Uy2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="991" y="-546"/>
         </scene>
     </scenes>
 </document>

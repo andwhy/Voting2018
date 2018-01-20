@@ -49,7 +49,7 @@ class NetworkManager {
                         candidates.append(Candidate(json: subJson))
                     }
 
-                    completionHandler(ErrorWithDescription(error: true, description: NetworkManager.errorDescriptionNothing), candidates)
+                    completionHandler(ErrorWithDescription(error: false, description: NetworkManager.errorDescriptionNothing), candidates)
                     return
                 }
             }
@@ -63,20 +63,31 @@ class NetworkManager {
     
     //MARK: Vote
     
-    func sendVoteAndUserData(selectedCandidate:Candidate, user: User, completionHandler: @escaping (ErrorWithDescription, [Candidate]?) -> Void) {
-        let parameters:[String : Any] = [:]
-        let url:String = NetworkManager.endPoint + "getCandidates"
+    func sendVoteAndUserData(user: User, completionHandler: @escaping (ErrorWithDescription) -> Void) {
+        var parameters:[String : Any] = [:]
+        let url:String = NetworkManager.endPoint + "regVoter"
         
+        parameters["regType"] = user.regType
+        parameters["user_token"] = user.userToken
+        parameters["user_id"] = user.userId
+        parameters["is_hide"] = user.isHide
+        parameters["age"] = user.age
+        parameters["city"] = user.city
+        parameters["country"] = user.country
+        parameters["sex"] = user.sex
+        parameters["select_candidate"] = user.selectCandidate
+
         AlamofireManager.request(url,  method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseData { (response:DataResponse) in
             
             guard let responseValue = response.result.value else {
-                completionHandler(ErrorWithDescription(error: true, description: NetworkManager.errorDescriptionNothing), nil)
+                completionHandler(ErrorWithDescription(error: true, description: NetworkManager.errorDescriptionNothing))
                 return
             }
             do {
                 let json = try JSON(data: responseValue)
+                
                 if json["status"].string! == "OK" {
-                    print("getCandidates json \(json)")
+                    print("regVoter json \(json)")
                     
                     var candidates:[Candidate] = []
                     
@@ -84,12 +95,15 @@ class NetworkManager {
                         candidates.append(Candidate(json: subJson))
                     }
                     
-                    completionHandler(ErrorWithDescription(error: true, description: NetworkManager.errorDescriptionNothing), candidates)
+                    completionHandler(ErrorWithDescription(error: false, description: NetworkManager.errorDescriptionNothing))
                     return
+                } else {
+                    print("regVoter json status != ok \(json)")
+
                 }
             }
             catch {
-                completionHandler(ErrorWithDescription(error: true, description: NetworkManager.errorDescriptionNothing), nil)
+                completionHandler(ErrorWithDescription(error: true, description: NetworkManager.errorDescriptionNothing))
                 return
             }
         }

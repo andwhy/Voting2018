@@ -24,9 +24,7 @@ class CandidatesSelectionCVC: UIViewController, UICollectionViewDelegate, UIColl
         super.viewDidLoad()
 
         if let collectionViewFlowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
-//            collectionViewFlowLayout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize
             collectionViewFlowLayout.estimatedItemSize = CGSize(width: 100, height: 100)
-
         }
     }
     
@@ -38,7 +36,14 @@ class CandidatesSelectionCVC: UIViewController, UICollectionViewDelegate, UIColl
         NetworkManager.sI.getCandidates() { error, candidates in
             if let resultCandidates = candidates {
                 self.candidates = resultCandidates
+                
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                if let alreadySelectedCandidate = appDelegate.user?.selectCandidate {
+                    self.selectedCandidate = candidates?.first(where: { $0.number == alreadySelectedCandidate })
+                }
+    
                 self.collectionView?.reloadData()
+                _ = self.updateButtonVoteAndGetIsEnabledState()
             }
         }
     }
@@ -74,6 +79,7 @@ class CandidatesSelectionCVC: UIViewController, UICollectionViewDelegate, UIColl
             selectedCandidate = candidates[indexPath.item]
         }
         collectionView.reloadData()
+        _ = updateButtonVoteAndGetIsEnabledState()
     }
     
     
@@ -81,8 +87,26 @@ class CandidatesSelectionCVC: UIViewController, UICollectionViewDelegate, UIColl
     //MARK: Actions
     
     @IBAction func actionButtonVote(_ sender: Any) {
+        guard updateButtonVoteAndGetIsEnabledState() == true else { return }
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.user?.selectCandidate = selectedCandidate?.number
+        appDelegate.user?.saveToKeychain()
+        
+        NetworkManager.sI.sendVoteAndUserData(user: appDelegate.user!) { error in
+            if error.isFalse() {
+                print("actionButtonVote saved")
+            }
+        }
     }
     
+    
+    //MARK: Helpers
+    
+    func updateButtonVoteAndGetIsEnabledState() -> Bool {
+        buttonVote.isEnabled = selectedCandidate != nil
+        return selectedCandidate != nil
+    }
     
     
 }

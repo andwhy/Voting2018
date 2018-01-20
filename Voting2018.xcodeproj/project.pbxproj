@@ -21,6 +21,7 @@
 		C773CABB200E6F540048C952 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C773CABA200E6F540048C952 /* Main.storyboard */; };
 		C773CABE200E6FD90048C952 /* CandidatesSelectionCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C773CABD200E6FD90048C952 /* CandidatesSelectionCVC.swift */; };
 		C773CAC1200E72CC0048C952 /* CandidatesSelectionCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C773CAC0200E72CC0048C952 /* CandidatesSelectionCVCell.swift */; };
+		C79FA2FE20139A8E00394582 /* OverallStatisticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FA2FD20139A8E00394582 /* OverallStatisticsVC.swift */; };
 		E4DE9FE1706D7AE3BE3FF2BA /* Pods_Voting2018.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3849E653848B1BC45AC04B50 /* Pods_Voting2018.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		C773CABA200E6F540048C952 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C773CABD200E6FD90048C952 /* CandidatesSelectionCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidatesSelectionCVC.swift; sourceTree = "<group>"; };
 		C773CAC0200E72CC0048C952 /* CandidatesSelectionCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidatesSelectionCVCell.swift; sourceTree = "<group>"; };
+		C79FA2FD20139A8E00394582 /* OverallStatisticsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallStatisticsVC.swift; sourceTree = "<group>"; };
 		FC83B9203558047742786596 /* Pods_Voting2018UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Voting2018UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -118,6 +120,7 @@
 				C766ACC2200C01BB008EB0DE /* Authorization */,
 				C773CABA200E6F540048C952 /* Main.storyboard */,
 				C773CAB9200E6F440048C952 /* Candidates Selection */,
+				C79FA2FA20139A7700394582 /* Overall Statistics */,
 				C766ACC9200C0365008EB0DE /* Managers */,
 				C766ACA9200BFEFC008EB0DE /* Assets.xcassets */,
 				C766ACAB200BFEFC008EB0DE /* LaunchScreen.storyboard */,
@@ -216,6 +219,30 @@
 			isa = PBXGroup;
 			children = (
 				C773CAC0200E72CC0048C952 /* CandidatesSelectionCVCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C79FA2FA20139A7700394582 /* Overall Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				C79FA2FB20139A7700394582 /* View Controllers */,
+				C79FA2FC20139A7700394582 /* Views */,
+			);
+			path = "Overall Statistics";
+			sourceTree = "<group>";
+		};
+		C79FA2FB20139A7700394582 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C79FA2FD20139A8E00394582 /* OverallStatisticsVC.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		C79FA2FC20139A7700394582 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -411,6 +438,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/PieCharts/PieCharts.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftHEXColors/SwiftHEXColors.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyVK/SwiftyVK.framework",
@@ -420,6 +448,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PieCharts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHEXColors.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyVK.framework",
@@ -454,6 +483,7 @@
 				C766ACA3200BFEFC008EB0DE /* AppDelegate.swift in Sources */,
 				C773CAC1200E72CC0048C952 /* CandidatesSelectionCVCell.swift in Sources */,
 				C773CAB8200E68130048C952 /* NetworkDataStructs.swift in Sources */,
+				C79FA2FE20139A8E00394582 /* OverallStatisticsVC.swift in Sources */,
 				C766ACCB200C0377008EB0DE /* ScreensManager.swift in Sources */,
 				C773CAB5200E666E0048C952 /* NetworkManager.swift in Sources */,
 				C766ACC8200C0277008EB0DE /* AuthStartVC.swift in Sources */,

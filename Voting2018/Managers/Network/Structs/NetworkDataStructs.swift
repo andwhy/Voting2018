@@ -43,7 +43,8 @@ public struct Candidate {
     var v:Int
     var number:Int
     var allVotes:Int
-
+    var color:String
+    
     init(json: JSON) {
         self.id = json["_id"].string!
         self.shortName = json["shortName"].string!
@@ -53,6 +54,7 @@ public struct Candidate {
         self.v = json["__v"].int!
         self.number = json["number"].int!
         self.allVotes = json["all_votes"].int!
+        self.color = String((json["color"].string!).dropFirst().dropFirst().dropFirst())
     }
 }
 

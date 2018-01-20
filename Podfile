@@ -11,6 +11,7 @@ pod 'SwiftHEXColors'
 pod 'SwiftyJSON'
 pod 'Kingfisher', '~> 4.0'
 pod 'KeychainSwift', '~> 10.0'
+pod 'PieCharts'
 
   # Pods for Voting2018
 
