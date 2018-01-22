@@ -10,9 +10,9 @@ import UIKit
 import PieCharts
 import SwiftHEXColors
 
-class OverallStatisticsVC: UIViewController, PieChartDelegate {
-    
+class OverallStatisticsVC: UIViewController, PieChartDelegate, UITableViewDelegate, UITableViewDataSource {
  
+    @IBOutlet var tableView: UITableView!
     @IBOutlet var viewPieChart: PieChart!
     var candidates:[Candidate] = []
 
@@ -33,7 +33,8 @@ class OverallStatisticsVC: UIViewController, PieChartDelegate {
         NetworkManager.sI.getCandidates() { error, candidates in
             if let resultCandidates = candidates {
                 self.candidates = resultCandidates
-
+                self.tableView.reloadData()
+                
                 let pieChartModels = resultCandidates.map({
                     PieSliceModel(value: Double($0.allVotes), color: UIColor.init(hexString: $0.color)!)
                 })
@@ -82,6 +83,34 @@ class OverallStatisticsVC: UIViewController, PieChartDelegate {
     
     func onSelected(slice: PieSlice, selected: Bool) {
         
+    }
+    
+    
+    //MARK: TableView delegate
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return candidates.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AllVotesCell", for: indexPath) as! AllVotesCell
+        let candidate = candidates[indexPath.row]
+        
+        cell.setName(text: candidate.shortName)
+        cell.setVotes(number: candidate.allVotes)
+        cell.setColor(colorHex: candidate.color)
+
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier :"DetailStatisticsVC") as! DetailStatisticsVC
+        vc.candidate = candidates[indexPath.row]
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 

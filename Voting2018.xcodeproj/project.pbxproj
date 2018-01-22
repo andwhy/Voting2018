@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1AF2FAC9F9B64986026043F3 /* Pods_Voting2018UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC83B9203558047742786596 /* Pods_Voting2018UITests.framework */; };
+		C73C0590201657BA005153F1 /* AllVotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73C058F201657BA005153F1 /* AllVotesCell.swift */; };
+		C73C059620165D86005153F1 /* RoundedUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73C059520165D86005153F1 /* RoundedUIImageView.swift */; };
+		C73C059820165E33005153F1 /* RoundedUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73C059720165E33005153F1 /* RoundedUIView.swift */; };
+		C73C059A20165F64005153F1 /* DetailStatisticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73C059920165F64005153F1 /* DetailStatisticsVC.swift */; };
 		C766ACA3200BFEFC008EB0DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C766ACA2200BFEFC008EB0DE /* AppDelegate.swift */; };
 		C766ACAA200BFEFC008EB0DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C766ACA9200BFEFC008EB0DE /* Assets.xcassets */; };
 		C766ACAD200BFEFC008EB0DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C766ACAB200BFEFC008EB0DE /* LaunchScreen.storyboard */; };
@@ -41,6 +45,10 @@
 		61C60E31792F8F07E7123D0E /* Pods-Voting2018.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voting2018.release.xcconfig"; path = "Pods/Target Support Files/Pods-Voting2018/Pods-Voting2018.release.xcconfig"; sourceTree = "<group>"; };
 		6D8021DAE8469B705E947426 /* Pods-Voting2018UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voting2018UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Voting2018UITests/Pods-Voting2018UITests.release.xcconfig"; sourceTree = "<group>"; };
 		A32FC1BDB151857FF21EDCA6 /* Pods-Voting2018UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voting2018UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Voting2018UITests/Pods-Voting2018UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C73C058F201657BA005153F1 /* AllVotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllVotesCell.swift; sourceTree = "<group>"; };
+		C73C059520165D86005153F1 /* RoundedUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUIImageView.swift; sourceTree = "<group>"; };
+		C73C059720165E33005153F1 /* RoundedUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUIView.swift; sourceTree = "<group>"; };
+		C73C059920165F64005153F1 /* DetailStatisticsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStatisticsVC.swift; sourceTree = "<group>"; };
 		C766AC9F200BFEFC008EB0DE /* Voting2018.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voting2018.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C766ACA2200BFEFC008EB0DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C766ACA9200BFEFC008EB0DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,6 +101,39 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C73C059120165C1B005153F1 /* Detail Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				C73C059220165C1B005153F1 /* View Controllers */,
+				C73C059320165C1B005153F1 /* Views */,
+			);
+			path = "Detail Statistics";
+			sourceTree = "<group>";
+		};
+		C73C059220165C1B005153F1 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C73C059920165F64005153F1 /* DetailStatisticsVC.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		C73C059320165C1B005153F1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C73C059420165D4A005153F1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C73C059520165D86005153F1 /* RoundedUIImageView.swift */,
+				C73C059720165E33005153F1 /* RoundedUIView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		C766AC96200BFEFC008EB0DE = {
 			isa = PBXGroup;
 			children = (
@@ -121,7 +162,9 @@
 				C773CABA200E6F540048C952 /* Main.storyboard */,
 				C773CAB9200E6F440048C952 /* Candidates Selection */,
 				C79FA2FA20139A7700394582 /* Overall Statistics */,
+				C73C059120165C1B005153F1 /* Detail Statistics */,
 				C766ACC9200C0365008EB0DE /* Managers */,
+				C73C059420165D4A005153F1 /* Helpers */,
 				C766ACA9200BFEFC008EB0DE /* Assets.xcassets */,
 				C766ACAB200BFEFC008EB0DE /* LaunchScreen.storyboard */,
 				C766ACAE200BFEFC008EB0DE /* Info.plist */,
@@ -243,6 +286,7 @@
 		C79FA2FC20139A7700394582 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C73C058F201657BA005153F1 /* AllVotesCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -480,11 +524,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C73C059A20165F64005153F1 /* DetailStatisticsVC.swift in Sources */,
 				C766ACA3200BFEFC008EB0DE /* AppDelegate.swift in Sources */,
 				C773CAC1200E72CC0048C952 /* CandidatesSelectionCVCell.swift in Sources */,
 				C773CAB8200E68130048C952 /* NetworkDataStructs.swift in Sources */,
+				C73C0590201657BA005153F1 /* AllVotesCell.swift in Sources */,
+				C73C059820165E33005153F1 /* RoundedUIView.swift in Sources */,
 				C79FA2FE20139A8E00394582 /* OverallStatisticsVC.swift in Sources */,
 				C766ACCB200C0377008EB0DE /* ScreensManager.swift in Sources */,
+				C73C059620165D86005153F1 /* RoundedUIImageView.swift in Sources */,
 				C773CAB5200E666E0048C952 /* NetworkManager.swift in Sources */,
 				C766ACC8200C0277008EB0DE /* AuthStartVC.swift in Sources */,
 				C773CAB2200E5B180048C952 /* VKDelegate.swift in Sources */,
