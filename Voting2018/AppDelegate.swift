@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyVK
 import KeychainSwift
+import NVActivityIndicatorView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,19 +21,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         setUpUser()
         setUpSDKs()
+        setupNVActivityIndicator()
         
-        if VK.sessions.default.state == .authorized {
-            ScreensManager.sI.showCandidatesSelectionFlow()
-        } else {
-            ScreensManager.sI.showAuthFlow()
-        }
-        ScreensManager.sI.showCandidatesSelectionFlow()
-
+//        if VK.sessions.default.state == .authorized {
+//            ScreensManager.sI.showCandidatesSelectionFlow()
+//        } else {
+//            ScreensManager.sI.showAuthFlow()
+//        }
+//        ScreensManager.sI.showShareOrBuyFlow()
+//                    ScreensManager.sI.showAuthFlow()
+        ScreensManager.sI.showStatisticsFlow()
         print("user from app delegate \(user)")
         
         return true
     }
 
+    func setupNVActivityIndicator() {
+        NVActivityIndicatorView.DEFAULT_BLOCKER_BACKGROUND_COLOR = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+//        NVActivityIndicatorView.DEFAULT_COLOR = UIColor.init(named: "VKBlue")!
+        NVActivityIndicatorView.DEFAULT_TYPE = .lineSpinFadeLoader
+    }
+    
     func setUpSDKs() {
        _ = VKDelegate.sI
         VK.sessions.default.config.language = .ru

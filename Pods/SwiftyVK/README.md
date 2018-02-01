@@ -27,7 +27,7 @@
     <a href="https://codecov.io/gh/SwiftyVK/SwiftyVK">
     <img src="https://codecov.io/gh/SwiftyVK/SwiftyVK/branch/master/graph/badge.svg" alt="Codecov" />
   </a>
-    <a href="https://codebeat.co/projects/github-com-swiftyvk-swiftyvk">
+    <a href="https://codebeat.co/projects/github-com-swiftyvk-swiftyvk-master">
     <img src="https://codebeat.co/badges/e9f1cca3-b81d-4c6d-9129-50205465cb8a" alt="Codebeat" >
   </a>
 </p>
@@ -37,9 +37,9 @@
 ## Table of contents
 * [Requirements](#requirements)
 * [Integration](#integration)
-  - [Manually](#manually)
+  - [Carthage (recomended)](#carthage-recomended)
   - [CocoaPods](#cocoapods)
-  - [Carthage](#carthage)
+  - [Manually](#manually)
 * [Getting started](#getting-started)
   - [Implement SwiftyVKDelegate](#implement-swiftyvkdelegate)
   - [Setting up VK application](#setting-up-vk-application)
@@ -76,9 +76,10 @@
 
 ## **Integration**
 
-### Manually
-  1. Just drag **SwiftyVK.framework** or include the whole **SwiftyVK.xcodeproj** into project
-  2. Link **SwiftyVK.framework** with application in **Your target preferences -> General -> Embedded binaries**
+### [Carthage](https://github.com/Carthage/Carthage) (recomended)
+```
+github "SwiftyVK/SwiftyVK"
+```
 
 ### [CocoaPods](https://github.com/CocoaPods/CocoaPods)
 ```ruby
@@ -89,10 +90,9 @@ target '$MySuperApp$' do
 end
 ```
 
-### [Carthage](https://github.com/Carthage/Carthage)
-```
-github "SwiftyVK/SwiftyVK"
-```
+### Manually
+  1. Just drag **SwiftyVK.framework** or include the whole **SwiftyVK.xcodeproj** into project
+  2. Link **SwiftyVK.framework** with application in **Your target preferences -> General -> Embedded binaries**
 
 ## **Getting started**
 ### Implement SwiftyVKDelegate
@@ -401,7 +401,14 @@ VK.API.Upload.Photo.toWall(media, to: .user(id: "4680178"))
     .onProgress {
         // This callback available only for uploading requests
         // Use it to handle uploading status and show it to user
-    }
+        
+        switch $0 {
+            case let .sent(current, of):
+                print("sent", current, "of": of)
+            case let .recieve(current, of):
+                print("recieve", current, "of": of)
+        }
+    } 
     .send()
 ```
 
@@ -487,6 +494,7 @@ VK.sessions.default.share(
 ```
 
 ***Images and link are optional, text is required***
+***Sharing not available on macOS 10.10. If you want to use it, please make pull request to this repo.***
 
 ## **FAQ**
 

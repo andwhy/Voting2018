@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import M13Checkbox
 
 class CandidatesSelectionCVCell: UICollectionViewCell {
     
@@ -15,6 +16,16 @@ class CandidatesSelectionCVCell: UICollectionViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var ageLabel: UILabel!
     @IBOutlet var cellWidth: NSLayoutConstraint!
+    @IBOutlet var checkBoxSelect: M13Checkbox!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        checkBoxSelect.boxType = .square
+        checkBoxSelect.stateChangeAnimation = .fill
+        checkBoxSelect.markType = .checkmark
+        checkBoxSelect.isUserInteractionEnabled = false
+    }
     
     func setName(text: String?) {
         if let text = text {
@@ -26,7 +37,7 @@ class CandidatesSelectionCVCell: UICollectionViewCell {
     
     func setAge(number: Int?) {
         if let number = number {
-            ageLabel.text = String.init(format: "%i", number)
+            ageLabel.text = String.init(format: "%i лет", number)
         } else {
             ageLabel.text = ""
         }
@@ -57,9 +68,9 @@ class CandidatesSelectionCVCell: UICollectionViewCell {
     
     func setSelected(bool: Bool) {
         if bool == true {
-            backgroundColor = UIColor.green
+            checkBoxSelect.setCheckState(.checked, animated: bool)
         } else {
-            backgroundColor = UIColor.white
+            checkBoxSelect.setCheckState(.unchecked, animated: bool)
         }
     }
     

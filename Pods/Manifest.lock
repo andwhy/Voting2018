@@ -2,16 +2,24 @@ PODS:
   - Alamofire (4.6.0)
   - KeychainSwift (10.0.0)
   - Kingfisher (4.6.1)
+  - M13Checkbox (3.2.2)
+  - NVActivityIndicatorView (4.1.1):
+    - NVActivityIndicatorView/Presenter (= 4.1.1)
+  - NVActivityIndicatorView/Presenter (4.1.1)
   - PieCharts (0.0.5)
+  - RangeSeekSlider (1.7.0)
   - SwiftHEXColors (1.1.1)
   - SwiftyJSON (4.0.0)
-  - SwiftyVK (3.1.2)
+  - SwiftyVK (3.1.3)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
   - KeychainSwift (~> 10.0)
   - Kingfisher (~> 4.0)
+  - M13Checkbox
+  - NVActivityIndicatorView
   - PieCharts
+  - RangeSeekSlider
   - SwiftHEXColors
   - SwiftyJSON
   - SwiftyVK
@@ -20,11 +28,14 @@ SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   KeychainSwift: f9f7910449a0c0fd2cabc889121530dd2c477c33
   Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
+  M13Checkbox: a8c2491cfbbca10797925fd0b9154a782bf40d89
+  NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
   PieCharts: a0fb4784a3460088c8ba7dfb00b89784ddaa7e70
+  RangeSeekSlider: 0386c5a9aa5ebcb2fa5238e8a627280cf46c7c0a
   SwiftHEXColors: 9681e756dc78a99ae97f277165b3f5e33b087553
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
-  SwiftyVK: b32b7587c208f5d74527d686296f8d6c58436f8f
+  SwiftyVK: bc6aaa4d763012fa09bfa4e2110da8b257bc17e7
 
-PODFILE CHECKSUM: 244629efee1bf0b051997fc95d9afd19ba7de541
+PODFILE CHECKSUM: 0453cdf346c4a25144d268df7fa194f254e25c38
 
 COCOAPODS: 1.3.1

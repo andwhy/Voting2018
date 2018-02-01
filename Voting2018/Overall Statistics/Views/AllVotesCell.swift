@@ -33,7 +33,7 @@ class AllVotesCell: UITableViewCell {
     
     func setVotes(number: Int?) {
         if let number = number {
-            labelVotes.text = String.init(format: "%i", number)
+            labelVotes.text = String.init(format: "%i голосов", number)
         } else {
             labelVotes.text = ""
         }

@@ -24,10 +24,18 @@ class OverallStatisticsVC: UIViewController, PieChartDelegate, UITableViewDelega
         viewPieChart.innerRadius = viewPieChart.frame.width/8
         viewPieChart.outerRadius = viewPieChart.frame.width/2.5
         viewPieChart.delegate = self
-        viewPieChart.layers = [createTextWithLinesLayer(), createTextLayer()]
+//        viewPieChart.layers = [createTextWithLinesLayer(), createTextLayer()]
+        viewPieChart.layers = [createTextLayer()]
         viewPieChart.isUserInteractionEnabled = false
     }
 
+    func updateTitle() {
+        var totalVotes = 0
+        for candidate in candidates {
+            totalVotes += candidate.allVotes
+        }
+        self.title = String.init(format: "Всего: %i голосов", totalVotes)
+    }
     
     func updateData() {
         NetworkManager.sI.getCandidates() { error, candidates in
@@ -39,6 +47,8 @@ class OverallStatisticsVC: UIViewController, PieChartDelegate, UITableViewDelega
                     PieSliceModel(value: Double($0.allVotes), color: UIColor.init(hexString: $0.color)!)
                 })
                 self.viewPieChart.models = pieChartModels
+                
+                self.updateTitle()
             }
         }
     }

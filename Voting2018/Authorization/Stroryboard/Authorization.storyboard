@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,9 +15,8 @@
         <!--Navigation Controller-->
         <scene sceneID="cNQ-sm-qSv">
             <objects>
-                <navigationController storyboardIdentifier="StartNC" id="luA-fl-x30" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="StartNC" navigationBarHidden="YES" id="luA-fl-x30" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zP5-Ko-ZpW">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -34,28 +35,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="744-Yi-mXG">
-                                <rect key="frame" x="0.0" y="308.5" width="375" height="50"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbg-Ub-dzR">
-                                        <rect key="frame" x="0.0" y="10" width="375" height="30"/>
-                                        <state key="normal" title="VK"/>
-                                        <connections>
-                                            <action selector="actionButtonVKAuth:" destination="Apc-2r-VaY" eventType="touchUpInside" id="XYB-Um-cnz"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Jn7-Dm-DvG">
+                                <rect key="frame" x="0.0" y="60" width="375" height="250"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="zBu-LQ-JYN"/>
+                                    <constraint firstAttribute="width" secondItem="Jn7-Dm-DvG" secondAttribute="height" multiplier="1.5:1" id="wDs-Iu-lPT"/>
                                 </constraints>
-                            </stackView>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Авторизуйтесь через ВКонтакте чтобы проголосовать за своего кандидата и узнать, кто побеждает в текущий момент." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ijg-1M-Yeu">
+                                <rect key="frame" x="60" y="330" width="275" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" name="TextNormalGray"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Приложение служит исключительно для опроса пользователей и просмотра статистики." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJr-1D-hvn">
+                                <rect key="frame" x="50" y="522" width="275" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" name="TextLightGray"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbg-Ub-dzR">
+                                <rect key="frame" x="50" y="442" width="275" height="60"/>
+                                <color key="backgroundColor" name="VKBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="F7d-P9-cfS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="ВОЙТИ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="actionButtonVKAuth:" destination="Apc-2r-VaY" eventType="touchUpInside" id="XYB-Um-cnz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="QWD-PW-Wue" firstAttribute="trailing" secondItem="744-Yi-mXG" secondAttribute="trailing" id="8nF-V1-zKA"/>
-                            <constraint firstItem="744-Yi-mXG" firstAttribute="leading" secondItem="QWD-PW-Wue" secondAttribute="leading" id="9Ev-gf-mhw"/>
-                            <constraint firstItem="744-Yi-mXG" firstAttribute="centerY" secondItem="2p3-4l-jMw" secondAttribute="centerY" id="HXo-fC-d7h"/>
-                            <constraint firstItem="744-Yi-mXG" firstAttribute="centerX" secondItem="2p3-4l-jMw" secondAttribute="centerX" id="jMU-ni-ihz"/>
+                            <constraint firstItem="HJr-1D-hvn" firstAttribute="centerX" secondItem="2p3-4l-jMw" secondAttribute="centerX" id="12x-W3-tYA"/>
+                            <constraint firstItem="QWD-PW-Wue" firstAttribute="trailing" secondItem="Jn7-Dm-DvG" secondAttribute="trailing" id="27o-xN-aaU"/>
+                            <constraint firstItem="HJr-1D-hvn" firstAttribute="top" secondItem="jbg-Ub-dzR" secondAttribute="bottom" constant="20" id="6gy-u1-8Uh"/>
+                            <constraint firstItem="Jn7-Dm-DvG" firstAttribute="leading" secondItem="QWD-PW-Wue" secondAttribute="leading" id="LWi-DA-fDd"/>
+                            <constraint firstItem="HJr-1D-hvn" firstAttribute="width" secondItem="Ijg-1M-Yeu" secondAttribute="width" id="bDz-vb-M7D"/>
+                            <constraint firstItem="Ijg-1M-Yeu" firstAttribute="leading" secondItem="QWD-PW-Wue" secondAttribute="leading" constant="60" id="ehk-4y-v7r"/>
+                            <constraint firstItem="Jn7-Dm-DvG" firstAttribute="top" secondItem="QWD-PW-Wue" secondAttribute="top" constant="40" id="fIe-SP-btu"/>
+                            <constraint firstItem="jbg-Ub-dzR" firstAttribute="centerX" secondItem="2p3-4l-jMw" secondAttribute="centerX" id="i0U-ox-VGv"/>
+                            <constraint firstItem="jbg-Ub-dzR" firstAttribute="top" secondItem="Ijg-1M-Yeu" secondAttribute="bottom" constant="40" id="iY7-2G-tGO"/>
+                            <constraint firstItem="QWD-PW-Wue" firstAttribute="trailing" secondItem="Ijg-1M-Yeu" secondAttribute="trailing" constant="40" id="mty-n2-9IB"/>
+                            <constraint firstItem="jbg-Ub-dzR" firstAttribute="width" secondItem="Ijg-1M-Yeu" secondAttribute="width" id="od4-Tl-l6c"/>
+                            <constraint firstItem="QWD-PW-Wue" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="HJr-1D-hvn" secondAttribute="bottom" constant="20" id="tmD-ug-1DL"/>
+                            <constraint firstItem="Ijg-1M-Yeu" firstAttribute="top" secondItem="Jn7-Dm-DvG" secondAttribute="bottom" constant="20" id="uk4-hh-QMm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QWD-PW-Wue"/>
                     </view>
@@ -69,4 +102,16 @@
             <point key="canvasLocation" x="458" y="-227"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="1280" height="853"/>
+        <namedColor name="TextLightGray">
+            <color red="0.70980392156862748" green="0.70980392156862748" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextNormalGray">
+            <color red="0.51764705882352946" green="0.51764705882352946" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="VKBlue">
+            <color red="0.30588235294117649" green="0.52941176470588236" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

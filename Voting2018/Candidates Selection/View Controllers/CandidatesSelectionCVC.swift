@@ -26,16 +26,27 @@ class CandidatesSelectionCVC: UIViewController, UICollectionViewDelegate, UIColl
         if let collectionViewFlowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
             collectionViewFlowLayout.estimatedItemSize = CGSize(width: 100, height: 100)
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         updateData()
     }
     
+    func updateTitle() {
+        var totalVotes = 0
+        for candidate in candidates {
+            totalVotes += candidate.allVotes
+        }
+        self.title = String.init(format: "Собрано %i голосов", totalVotes)
+    }
+    
     func updateData() {
         NetworkManager.sI.getCandidates() { error, candidates in
             if let resultCandidates = candidates {
                 self.candidates = resultCandidates
+                
+                self.updateTitle()
                 
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 if let alreadySelectedCandidate = appDelegate.user?.selectCandidate {
@@ -89,15 +100,40 @@ class CandidatesSelectionCVC: UIViewController, UICollectionViewDelegate, UIColl
     @IBAction func actionButtonVote(_ sender: Any) {
         guard updateButtonVoteAndGetIsEnabledState() == true else { return }
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.user?.selectCandidate = selectedCandidate?.number
-        appDelegate.user?.saveToKeychain()
+        func sendVoteAndUserData(hideVoteFromFriends: Bool) {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.user?.selectCandidate = selectedCandidate?.number
+            appDelegate.user?.isHide = (hideVoteFromFriends == true) ? 1 : 0
+            appDelegate.user?.saveToKeychain()
         
-        NetworkManager.sI.sendVoteAndUserData(user: appDelegate.user!) { error in
-            if error.isFalse() {
-                print("actionButtonVote saved")
+            NetworkManager.sI.sendVoteAndUserData(user: appDelegate.user!) { error in
+                if error.isFalse() {
+                    print("actionButtonVote saved")
+                }
             }
         }
+        
+        let alertController = UIAlertController(title: "", message: "Хотите скрыть выбор от ваших друзей?", preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Нет", style: .default) { action in
+            sendVoteAndUserData(hideVoteFromFriends: false)
+        }
+        alertController.addAction(cancelAction)
+        
+        let OKAction = UIAlertAction(title: "Да", style: .default) { action in
+            sendVoteAndUserData(hideVoteFromFriends: true)
+        }
+        alertController.addAction(OKAction)
+        
+        let destroyAction = UIAlertAction(title: "Отмена", style: .cancel) { action in
+        }
+        alertController.addAction(destroyAction)
+        
+        self.present(alertController, animated: true) {
+            // ...
+        }
+        
+
     }
     
     

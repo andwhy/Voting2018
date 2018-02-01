@@ -27,6 +27,7 @@ class AuthStartVC: UIViewController {
     
     @IBAction func actionButtonVKAuth(_ sender: Any) {
 
+        VK.sessions.default.logOut()
         VK.sessions.default.logIn(
             onSuccess: { _ in
                 self.getUserInfoAndPushNexScreen()
@@ -64,6 +65,8 @@ class AuthStartVC: UIViewController {
                     appDelegate.user?.country = json[0]["country"]["title"].stringValue
                     appDelegate.user?.sex = json[0]["sex"].intValue
                     appDelegate.user?.saveToKeychain()
+                    
+                    ScreensManager.sI.showCandidatesSelectionFlow()
                 }
                 
             } .onError {
