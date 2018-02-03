@@ -28,7 +28,6 @@
 		C773CAC1200E72CC0048C952 /* CandidatesSelectionCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C773CAC0200E72CC0048C952 /* CandidatesSelectionCVCell.swift */; };
 		C79FA2FE20139A8E00394582 /* OverallStatisticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FA2FD20139A8E00394582 /* OverallStatisticsVC.swift */; };
 		C7BB41532023665C00C04250 /* StatisticsFilterTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BB41522023665C00C04250 /* StatisticsFilterTVC.swift */; };
-		C7CC11C4202266300065BE33 /* testImage.png in Resources */ = {isa = PBXBuildFile; fileRef = C7CC11C3202266300065BE33 /* testImage.png */; };
 		C7CC11C62022F6D10065BE33 /* NVActivityIndicatorPresenter+Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC11C52022F6D10065BE33 /* NVActivityIndicatorPresenter+Show.swift */; };
 		C7CC11C82022FD830065BE33 /* IAPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC11C72022FD830065BE33 /* IAPHandler.swift */; };
 		E4DE9FE1706D7AE3BE3FF2BA /* Pods_Voting2018.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3849E653848B1BC45AC04B50 /* Pods_Voting2018.framework */; };
@@ -74,7 +73,6 @@
 		C773CAC0200E72CC0048C952 /* CandidatesSelectionCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidatesSelectionCVCell.swift; sourceTree = "<group>"; };
 		C79FA2FD20139A8E00394582 /* OverallStatisticsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallStatisticsVC.swift; sourceTree = "<group>"; };
 		C7BB41522023665C00C04250 /* StatisticsFilterTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsFilterTVC.swift; sourceTree = "<group>"; };
-		C7CC11C3202266300065BE33 /* testImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testImage.png; sourceTree = "<group>"; };
 		C7CC11C52022F6D10065BE33 /* NVActivityIndicatorPresenter+Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NVActivityIndicatorPresenter+Show.swift"; sourceTree = "<group>"; };
 		C7CC11C72022FD830065BE33 /* IAPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHandler.swift; sourceTree = "<group>"; };
 		FC83B9203558047742786596 /* Pods_Voting2018UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Voting2018UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,7 +182,6 @@
 		C766ACA1200BFEFC008EB0DE /* Voting2018 */ = {
 			isa = PBXGroup;
 			children = (
-				C7CC11C3202266300065BE33 /* testImage.png */,
 				C766ACA9200BFEFC008EB0DE /* Assets.xcassets */,
 				C766ACA2200BFEFC008EB0DE /* AppDelegate.swift */,
 				C766ACC2200C01BB008EB0DE /* Authorization */,
@@ -448,7 +445,6 @@
 				C766ACAD200BFEFC008EB0DE /* LaunchScreen.storyboard in Resources */,
 				C766ACAA200BFEFC008EB0DE /* Assets.xcassets in Resources */,
 				C773CABB200E6F540048C952 /* Main.storyboard in Resources */,
-				C7CC11C4202266300065BE33 /* testImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

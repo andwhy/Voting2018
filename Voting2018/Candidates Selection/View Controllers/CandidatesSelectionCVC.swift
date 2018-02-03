@@ -109,6 +109,11 @@ class CandidatesSelectionCVC: UIViewController, UICollectionViewDelegate, UIColl
             NetworkManager.sI.sendVoteAndUserData(user: appDelegate.user!) { error in
                 if error.isFalse() {
                     print("actionButtonVote saved")
+                    ScreensManager.sI.showShareOrBuyFlow()
+                } else {
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    appDelegate.user?.selectCandidate = nil
+                    appDelegate.user?.saveToKeychain()
                 }
             }
         }

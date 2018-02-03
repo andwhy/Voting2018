@@ -148,5 +148,13 @@ public struct User {
             keychain.set(selectCandidateString, forKey: "select_candidate")
         }
     }
+    
+    func isAlreadyVoted() -> Bool {
+        if selectCandidate != nil {
+            return true
+        } else {
+            return false
+        }
+    }
 }
 

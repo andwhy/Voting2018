@@ -23,14 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setUpSDKs()
         setupNVActivityIndicator()
         
-//        if VK.sessions.default.state == .authorized {
-//            ScreensManager.sI.showCandidatesSelectionFlow()
-//        } else {
-//            ScreensManager.sI.showAuthFlow()
-//        }
+        if VK.sessions.default.state == .authorized {
+            ScreensManager.sI.showCandidatesSelectionFlow()
+        } else {
+            ScreensManager.sI.showAuthFlow()
+        }
 //        ScreensManager.sI.showShareOrBuyFlow()
 //                    ScreensManager.sI.showAuthFlow()
-        ScreensManager.sI.showStatisticsFlow(candidatesFilter: nil)
+//        ScreensManager.sI.showStatisticsFlow(candidatesFilter: nil)
         print("user from app delegate \(user)")
         
         return true
