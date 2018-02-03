@@ -60,6 +60,80 @@ class NetworkManager {
         }
     }
     
+    func getCandidatesByFilters(candidatesFilter: CandidatesFilter, candidates: [Candidate], completionHandler: @escaping (ErrorWithDescription, [Candidate]?) -> Void) {
+        var parameters:[String : Any] = [:]
+        let url:String = NetworkManager.endPoint + "getCandidatesByFilters"
+        
+        if candidatesFilter.sex != nil { parameters["sex"] = candidatesFilter.sex }
+        if candidatesFilter.country != nil { parameters["country"] = candidatesFilter.country }
+        if candidatesFilter.city != nil { parameters["city"] = candidatesFilter.city }
+        if candidatesFilter.maxAge != nil { parameters["maxAge"] = candidatesFilter.maxAge }
+        if candidatesFilter.minAge != nil { parameters["minAge"] = candidatesFilter.minAge }
+        
+        print(parameters)
+        
+        AlamofireManager.request(url,  method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseData { (response:DataResponse) in
+            
+            guard let responseValue = response.result.value else {
+                completionHandler(ErrorWithDescription(error: true, description: NetworkManager.errorDescriptionNothing), nil)
+                return
+            }
+            do {
+                let json = try JSON(data: responseValue)
+                if json["status"].string! == "OK" {
+                    print("getCandidates json \(json)")
+                    
+                    var candidatesFinal: [Candidate] = []
+                    
+                    for (_, subJson):(String, JSON) in json["result"] {
+                        let number = subJson["_id"]["value"].int!
+                        var candidate = candidates.first(where: { $0.number == number })
+                        candidate?.allVotes = subJson["total_votes"].int!
+                        candidatesFinal.append(candidate!)
+                        print("candidate \(candidate)")
+                    }
+                    
+                    completionHandler(ErrorWithDescription(error: false, description: NetworkManager.errorDescriptionNothing), candidatesFinal)
+                    return
+                }
+            }
+            catch {
+                completionHandler(ErrorWithDescription(error: true, description: NetworkManager.errorDescriptionNothing), nil)
+                return
+            }
+        }
+    }
+    
+    
+    func getShareInfo(completionHandler: @escaping (ErrorWithDescription, ShareWall?) -> Void) {
+        let parameters:[String : Any] = [:]
+        let url:String = NetworkManager.endPoint + "getVotesConfig"
+        
+        AlamofireManager.request(url,  method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseData { (response:DataResponse) in
+            
+            guard let responseValue = response.result.value else {
+                completionHandler(ErrorWithDescription(error: true, description: NetworkManager.errorDescriptionNothing), nil)
+                return
+            }
+            do {
+                let json = try JSON(data: responseValue)
+//                if json["status"].string! == "OK" {
+                    print("getshareWall json \(json)")
+                    
+                    let shareWall = ShareWall(json: json)
+                    
+                    completionHandler(ErrorWithDescription(error: false, description: NetworkManager.errorDescriptionNothing), shareWall)
+                    return
+//                }
+            }
+            catch {
+                completionHandler(ErrorWithDescription(error: true, description: NetworkManager.errorDescriptionNothing), nil)
+                return
+            }
+        }
+    }
+    
+    
     
     //MARK: Vote
     
@@ -109,5 +183,7 @@ class NetworkManager {
         }
     }
 
+    
+    
 
 }

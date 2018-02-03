@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
 //        ScreensManager.sI.showShareOrBuyFlow()
 //                    ScreensManager.sI.showAuthFlow()
-        ScreensManager.sI.showStatisticsFlow()
+        ScreensManager.sI.showStatisticsFlow(candidatesFilter: nil)
         print("user from app delegate \(user)")
         
         return true

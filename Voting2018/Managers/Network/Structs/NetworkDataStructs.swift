@@ -58,6 +58,49 @@ public struct Candidate {
     }
 }
 
+public struct ShareWall {
+    
+    var postText:String?
+    var postImg:String?
+    var postUrl:String?
+
+    init(json: JSON) {
+        self.postText = json["post_text"].string!
+        self.postImg = json["post_img"].string!
+        self.postUrl = json["post_url"].string!
+    }
+}
+
+public struct CandidatesFilter {
+    
+    var country:String?
+    var city: String?
+    var minAge:Int?
+    var maxAge:Int?
+    var sex:Int?
+    
+    init(country: String? = nil,
+        city: String? = nil,
+        minAge: Int? = nil,
+        maxAge: Int? = nil,
+        sex: Int? = nil ) {
+        
+        self.country = country
+        self.city = city
+        self.minAge = minAge
+        self.maxAge = maxAge
+        self.sex = sex
+    }
+    
+    func isActive() -> Bool {
+        if self.city != nil || self.country != nil || self.minAge != nil || self.maxAge != nil || self.sex != nil {
+            return true
+        } else {
+            return false
+        }
+    }
+}
+
 public struct User {
     
     var regType:String?

@@ -30,7 +30,7 @@ class ShareOrBuyVC: UIViewController {
             if type == .purchased || type  == .restored {
                 NVActivityIndicatorPresenter.stop()
                 print("Куплено или восстановлено")
-                ScreensManager.sI.showStatisticsFlow()
+                ScreensManager.sI.showStatisticsFlow(candidatesFilter: nil)
             } else if type == .fetched {
                 self.buttonBuyPro.isEnabled = true
                 let iapProducts = IAPHandler.shared.iapProducts
@@ -52,20 +52,28 @@ class ShareOrBuyVC: UIViewController {
 
     @IBAction func actionButtonShare(_ sender: Any) {
         
-//        NVActivityIndicatorPresenter.start()
-        let message = "Привет!"
+        NVActivityIndicatorPresenter.start()
+        NetworkManager.sI.getShareInfo() { error, shareWall in
+            NVActivityIndicatorPresenter.stop()
+            guard let shareWall = shareWall else { return }
+            
+            print(shareWall.postUrl! + "," + shareWall.postImg!)
+            
+            VK.API.Wall.post([
+                .message: shareWall.postText,
+                .attachments : shareWall.postUrl! + "," + shareWall.postImg!
+                ]).onSuccess { result in
+                    let json = try JSON(data: result)
+                    print("success result get info \(json)")
+                    //                NVActivityIndicatorPresenter.stop()
+                    ScreensManager.sI.showStatisticsFlow(candidatesFilter: nil)
+                } .onError {
+                    print("error result get info \($0)")
+                    //                NVActivityIndicatorPresenter.stop()
+                }.send()
+        }
         
-        VK.API.Wall.post([
-            .message: message,
-            ]).onSuccess { result in
-            let json = try JSON(data: result)
-                print("success result get info \(json)")
-//                NVActivityIndicatorPresenter.stop()
-                ScreensManager.sI.showStatisticsFlow()
-            } .onError {
-                print("error result get info \($0)")
-//                NVActivityIndicatorPresenter.stop()
-            }.send()
+
     }
     
     @IBAction func actionButtonBuyPro(_ sender: Any) {

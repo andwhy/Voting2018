@@ -9,24 +9,28 @@
 import UIKit
 import PieCharts
 import SwiftHEXColors
+import NVActivityIndicatorView
 
 class OverallStatisticsVC: UIViewController, PieChartDelegate, UITableViewDelegate, UITableViewDataSource {
  
     @IBOutlet var tableView: UITableView!
     @IBOutlet var viewPieChart: PieChart!
     var candidates:[Candidate] = []
-
+    var candidatesFilter:CandidatesFilter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateData()
         
-        viewPieChart.innerRadius = viewPieChart.frame.width/8
-        viewPieChart.outerRadius = viewPieChart.frame.width/2.5
+        viewPieChart.innerRadius = self.view.frame.width/8
+        viewPieChart.outerRadius = self.view.frame.width/2.5
         viewPieChart.delegate = self
 //        viewPieChart.layers = [createTextWithLinesLayer(), createTextLayer()]
         viewPieChart.layers = [createTextLayer()]
         viewPieChart.isUserInteractionEnabled = false
+        
+        self.tableView.tableHeaderView?.frame = CGRect(x: (self.tableView.tableHeaderView?.frame.origin.x)!, y: (self.tableView.tableHeaderView?.frame.origin.y)!, width: (self.tableView.tableHeaderView?.frame.width)!, height: self.view.frame.width)
+        
     }
 
     func updateTitle() {
@@ -38,17 +42,41 @@ class OverallStatisticsVC: UIViewController, PieChartDelegate, UITableViewDelega
     }
     
     func updateData() {
+        
+        func finishUpdate() {
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
+            let pieChartModels = self.candidates.map({
+                PieSliceModel(value: Double($0.allVotes), color: UIColor.init(hexString: $0.color)!)
+            })
+            self.viewPieChart.models = pieChartModels
+            
+            DispatchQueue.main.async {
+                self.updateTitle()
+            }
+        }
+        
+        NVActivityIndicatorPresenter.start()
         NetworkManager.sI.getCandidates() { error, candidates in
             if let resultCandidates = candidates {
                 self.candidates = resultCandidates
-                self.tableView.reloadData()
-                
-                let pieChartModels = resultCandidates.map({
-                    PieSliceModel(value: Double($0.allVotes), color: UIColor.init(hexString: $0.color)!)
-                })
-                self.viewPieChart.models = pieChartModels
-                
-                self.updateTitle()
+                NVActivityIndicatorPresenter.stop()
+
+                if let candidatesFilter = self.candidatesFilter, candidatesFilter.isActive()    {
+                        NVActivityIndicatorPresenter.start()
+                        NetworkManager.sI.getCandidatesByFilters(candidatesFilter:  self.candidatesFilter!, candidates: self.candidates) { error,        candidates in
+                            NVActivityIndicatorPresenter.stop()
+                            if let resultCandidates = candidates {
+                                self.candidates = resultCandidates
+                            }
+                            finishUpdate()
+                        }
+                } else {
+                    finishUpdate()
+                }
             }
         }
     }
@@ -122,6 +150,5 @@ class OverallStatisticsVC: UIViewController, PieChartDelegate, UITableViewDelega
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
-
 
 }
