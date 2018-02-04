@@ -40,7 +40,7 @@ class ScreensManager {
         }
     }
     
-    func showStatisticsFlow(candidatesFilter: CandidatesFilter?) {
+    func showStatisticsFlow() {
         DispatchQueue.main.async {
 
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -48,10 +48,6 @@ class ScreensManager {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nController = storyboard.instantiateViewController(withIdentifier :"OverallStatisticsNC") as! UINavigationController
-        
-        let vc = nController.viewControllers.first as! OverallStatisticsVC
-    
-        if candidatesFilter != nil { vc.candidatesFilter = candidatesFilter! }
             
         appDelegate.window?.rootViewController = nController
         appDelegate.window?.makeKeyAndVisible()

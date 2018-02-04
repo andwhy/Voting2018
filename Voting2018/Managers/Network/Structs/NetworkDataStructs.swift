@@ -112,6 +112,33 @@ public struct User {
     var country:String?
     var sex:Int?
     var selectCandidate:Int?
+    var sharedApp:Bool?
+    var paidApp:Bool?
+    
+    init(regType:String? = nil,
+         userToken:String? = nil,
+         userId:String? = nil,
+         isHide:Int? = nil,
+         age:Int? = nil,
+         city:String? = nil,
+         country:String? = nil,
+         sex:Int? = nil,
+         selectCandidate:Int? = nil,
+         sharedApp:Bool? = nil,
+         paidApp:Bool? = nil) {
+        
+        self.regType = regType
+        self.userToken = userToken
+        self.userId = userId
+        self.isHide = isHide
+        self.age = age
+        self.city = city
+        self.country = country
+        self.sex = sex
+        self.selectCandidate = selectCandidate
+        self.sharedApp = sharedApp
+        self.paidApp = paidApp
+    }
     
     func saveToKeychain() {
         let keychain = KeychainSwift()
@@ -147,10 +174,27 @@ public struct User {
             let selectCandidateString = String.init(format: "%i", selectCandidate)
             keychain.set(selectCandidateString, forKey: "select_candidate")
         }
+        
+        if let sharedApp = self.sharedApp {
+            let sharedAppString = String.init(format: "%i", Int(truncating: NSNumber(value:sharedApp)))
+            keychain.set(sharedAppString, forKey: "shared_app")
+        }
+        if let paidApp = self.paidApp {
+            let paidAppString = String.init(format: "%i", Int(truncating: NSNumber(value:paidApp)))
+            keychain.set(paidAppString, forKey: "paid_app")
+        }
     }
     
     func isAlreadyVoted() -> Bool {
         if selectCandidate != nil {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func isSharedOrPaid() -> Bool {
+        if sharedApp == true || paidApp == true {
             return true
         } else {
             return false

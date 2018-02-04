@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 private let candidatesCellIdentifier = "CandidatesSelectionCVCell"
 
@@ -42,8 +43,11 @@ class CandidatesSelectionCVC: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func updateData() {
+        NVActivityIndicatorPresenter.start()
         NetworkManager.sI.getCandidates() { error, candidates in
             if let resultCandidates = candidates {
+                NVActivityIndicatorPresenter.stop()
+
                 self.candidates = resultCandidates
                 
                 self.updateTitle()

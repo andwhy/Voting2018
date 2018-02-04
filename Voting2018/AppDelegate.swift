@@ -24,7 +24,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupNVActivityIndicator()
         
         if VK.sessions.default.state == .authorized {
-            ScreensManager.sI.showCandidatesSelectionFlow()
+            if user!.isAlreadyVoted() {
+                if user!.isSharedOrPaid() {
+                    ScreensManager.sI.showStatisticsFlow()
+                } else {
+                    ScreensManager.sI.showShareOrBuyFlow()
+                }
+            } else {
+                ScreensManager.sI.showCandidatesSelectionFlow()
+            }
+
         } else {
             ScreensManager.sI.showAuthFlow()
         }
@@ -72,7 +81,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let selectCandidateString = keychain.get("select_candidate") {
                 selectCandidate = Int(selectCandidateString)
             }
-            self.user = User(regType: regType, userToken: userToken, userId: userId, isHide: isHide, age: age, city: city, country: country, sex: sex, selectCandidate: selectCandidate)
+            var sharedApp:Bool? = nil
+            if let sharedAppString = keychain.get("shared_app") {
+                sharedApp = Bool(truncating: (NSNumber(value:Int(sharedAppString)!)))
+            }
+            var paidApp:Bool? = nil
+            if let paidAppString = keychain.get("paid_app") {
+                paidApp = Bool(truncating: (NSNumber(value:Int(paidAppString)!)))
+            }
+            
+            self.user = User(regType: regType, userToken: userToken, userId: userId, isHide: isHide, age: age, city: city, country: country, sex: sex, selectCandidate: selectCandidate, sharedApp:sharedApp, paidApp:paidApp)
+            print("self.user \(self.user)")
         }
     }
     

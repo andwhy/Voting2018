@@ -30,7 +30,12 @@ class ShareOrBuyVC: UIViewController {
             if type == .purchased || type  == .restored {
                 NVActivityIndicatorPresenter.stop()
                 print("Куплено или восстановлено")
-                ScreensManager.sI.showStatisticsFlow(candidatesFilter: nil)
+                
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.user?.paidApp = true
+                appDelegate.user?.saveToKeychain()
+                
+                ScreensManager.sI.showStatisticsFlow()
             } else if type == .fetched {
                 self.buttonBuyPro.isEnabled = true
                 let iapProducts = IAPHandler.shared.iapProducts
@@ -66,7 +71,12 @@ class ShareOrBuyVC: UIViewController {
                     let json = try JSON(data: result)
                     print("success result get info \(json)")
                     //                NVActivityIndicatorPresenter.stop()
-                    ScreensManager.sI.showStatisticsFlow(candidatesFilter: nil)
+                    
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    appDelegate.user?.sharedApp = true
+                    appDelegate.user?.saveToKeychain()
+                    
+                    ScreensManager.sI.showStatisticsFlow()
                 } .onError {
                     print("error result get info \($0)")
                     //                NVActivityIndicatorPresenter.stop()

@@ -80,10 +80,15 @@ extension IAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
         purchaseStatusBlock?(.restored)
     }
     
+    func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
+        purchaseStatusBlock?(.failed)
+    }
+    
     // MARK:- IAP PAYMENT QUEUE
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction:AnyObject in transactions {
             if let trans = transaction as? SKPaymentTransaction {
+//                print("trans.transactionState \(trans.transactionState.rawValue)")
                 switch trans.transactionState {
                 case .purchased:
                     print("purchased")

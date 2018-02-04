@@ -184,8 +184,8 @@
 			children = (
 				C766ACA9200BFEFC008EB0DE /* Assets.xcassets */,
 				C766ACA2200BFEFC008EB0DE /* AppDelegate.swift */,
-				C766ACC2200C01BB008EB0DE /* Authorization */,
 				C773CABA200E6F540048C952 /* Main.storyboard */,
+				C766ACC2200C01BB008EB0DE /* Authorization */,
 				C773CAB9200E6F440048C952 /* Candidates Selection */,
 				C710399820225270003ADD93 /* Share Or Buy */,
 				C79FA2FA20139A7700394582 /* Overall Statistics */,

@@ -33,7 +33,9 @@ class AuthStartVC: UIViewController {
                 self.getUserInfoAndPushNexScreen()
             },
             onError: {
-                self.getUserInfoAndPushNexScreen()
+                if VK.sessions.default.state == .authorized {
+                    self.getUserInfoAndPushNexScreen()
+                }
                 print("error result auth \($0)")
             }
         )
@@ -44,7 +46,7 @@ class AuthStartVC: UIViewController {
     
     func getUserInfoAndPushNexScreen() {
         VK.API.Users.get([
-            .fields: "sex,bdate,city,country"
+            .fields: "sex,bdate,city,country,friends"
             ])
             .onSuccess { result in
                 let json = try JSON(data: result)
