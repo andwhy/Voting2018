@@ -20,6 +20,7 @@ class OverallStatisticsVC: UIViewController, PieChartDelegate, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         updateData()
         
         viewPieChart.innerRadius = self.view.frame.width/8
@@ -60,6 +61,13 @@ class OverallStatisticsVC: UIViewController, PieChartDelegate, UITableViewDelega
         }
         
         NVActivityIndicatorPresenter.start()
+        
+        NetworkManager.sI.getShareInfo() { error, shareWall in
+            if shareWall?.isHide == 1 {
+                NVActivityIndicatorPresenter.stop()
+                ScreensManager.sI.showStopScreen(text: shareWall?.isHideText)
+            }
+        
         NetworkManager.sI.getCandidates() { error, candidates in
             if let resultCandidates = candidates {
                 self.candidates = resultCandidates
@@ -78,6 +86,7 @@ class OverallStatisticsVC: UIViewController, PieChartDelegate, UITableViewDelega
                     finishUpdate()
                 }
             }
+        }
         }
     }
     
@@ -150,5 +159,15 @@ class OverallStatisticsVC: UIViewController, PieChartDelegate, UITableViewDelega
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    
+    //MARK: Segue
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "FriendsTVC") {
+            let vc = segue.destination as! FriendsTVC
+            vc.candidates = self.candidates
+        }
+    }
+    
 }

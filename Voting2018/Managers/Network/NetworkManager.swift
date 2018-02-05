@@ -230,6 +230,58 @@ class NetworkManager {
     }
 
     
+    //MARK: Friends
+    
+    
+    func getVotedFriends(userId: String, friends: [Friend], completionHandler: @escaping (ErrorWithDescription, [Friend]?) -> Void) {
+        var parameters:[String : Any] = [:]
+        let url:String = NetworkManager.endPoint + "getVkFriends"
+        
+        let friendsIds =  friends.map({ $0.id! })
+        let friendsIdsSeparatedByComma = friendsIds.joined(separator: ",")
+        
+        guard friendsIds.count > 0 else {
+            completionHandler(ErrorWithDescription(error: true, description: NetworkManager.errorDescriptionNothing), nil)
+            return
+        }
+        parameters["ids"] = friendsIdsSeparatedByComma
+        parameters["user_id"] = userId
+
+        AlamofireManager.request(url,  method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseData { (response:DataResponse) in
+            
+            guard let responseValue = response.result.value else {
+                completionHandler(ErrorWithDescription(error: true, description: NetworkManager.errorDescriptionNothing), nil)
+                return
+            }
+            do {
+                let json = try JSON(data: responseValue)
+                if json["status"].string! == "OK" {
+                    print("getStatistic json \(json)")
+                    
+                    var friendsFinal:[Friend] = []
+
+                    for (_, subJson):(String, JSON) in json["result"] {
+                        let id = subJson["user_id"].string!
+                        for friend in friends {
+                            if friend.id == id {
+                                var friend = friend
+                                friend.selectCandidate = subJson["select_candidate"].int!
+                                friendsFinal.append(friend)
+                                break
+                            }
+                        }
+                    }
+
+                    completionHandler(ErrorWithDescription(error: false, description: NetworkManager.errorDescriptionNothing), friendsFinal)
+                    return
+                }
+            }
+            catch {
+                completionHandler(ErrorWithDescription(error: true, description: NetworkManager.errorDescriptionNothing), nil)
+                return
+            }
+        }
+    }
     
 
 }

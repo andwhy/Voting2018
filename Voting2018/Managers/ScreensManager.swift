@@ -68,6 +68,22 @@ class ScreensManager {
         appDelegate.window?.makeKeyAndVisible()
         }
     }
+    
+    func showStopScreen(text: String?) {
+        DispatchQueue.main.async {
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier :"StopScreenVC") as! StopScreenVC
+            vc.text = text
+            
+            appDelegate.window?.rootViewController = vc
+            appDelegate.window?.makeKeyAndVisible()
+        }
+        
+    }
 
 
 }

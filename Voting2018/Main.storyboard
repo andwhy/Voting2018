@@ -448,7 +448,7 @@
                     <navigationItem key="navigationItem" id="zTG-h1-jgC">
                         <barButtonItem key="leftBarButtonItem" title="Друзья" id="A78-3p-7Mi">
                             <connections>
-                                <segue destination="Ete-sl-WAt" kind="show" id="Fgl-dY-V7p"/>
+                                <segue destination="Ete-sl-WAt" kind="show" identifier="FriendsTVC" id="Fgl-dY-V7p"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Фильтры" id="odU-1B-MPd">

@@ -105,12 +105,16 @@ class CandidatesSelectionCVC: UIViewController, UICollectionViewDelegate, UIColl
         guard updateButtonVoteAndGetIsEnabledState() == true else { return }
         
         func sendVoteAndUserData(hideVoteFromFriends: Bool) {
+            NVActivityIndicatorPresenter.start()
+            DispatchQueue.main.async {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.user?.selectCandidate = selectedCandidate?.number
+            appDelegate.user?.selectCandidate = self.selectedCandidate?.number
             appDelegate.user?.isHide = (hideVoteFromFriends == true) ? 1 : 0
             appDelegate.user?.saveToKeychain()
+            
         
             NetworkManager.sI.sendVoteAndUserData(user: appDelegate.user!) { error in
+                NVActivityIndicatorPresenter.stop()
                 if error.isFalse() {
                     print("actionButtonVote saved")
                     ScreensManager.sI.showShareOrBuyFlow()
@@ -119,6 +123,7 @@ class CandidatesSelectionCVC: UIViewController, UICollectionViewDelegate, UIColl
                     appDelegate.user?.selectCandidate = nil
                     appDelegate.user?.saveToKeychain()
                 }
+            }
             }
         }
         

@@ -9,9 +9,13 @@
 import UIKit
 import SwiftyVK
 import SwiftyJSON
+import NVActivityIndicatorView
 
 class FriendsTVC: UITableViewController {
 
+    var friends: [Friend]?
+    var candidates: [Candidate]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,21 +26,37 @@ class FriendsTVC: UITableViewController {
     func updateData() {
         if VK.sessions.default.state != .authorized { ScreensManager.sI.showAuthFlow() }
 
+        NVActivityIndicatorPresenter.start()
         VK.API.Friends.get([
-            .fields: "photo_50"
+            .fields: "photo_200_orig"
             ])
             .onSuccess { result in
                 let json = try JSON(data: result)
                 
+                var friends:[Friend] = []
+                for (_, subJson):(String, JSON) in json["items"] {
+                    let name = subJson["first_name"].stringValue + " " + subJson["last_name"].stringValue
+                    friends.append(Friend(name: name, id: String.init(format: "%i", subJson["id"].int!), photo: subJson["photo_200_orig"].stringValue, selectCandidate: nil))
+                }
+                
                 DispatchQueue.main.async {
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 let user = appDelegate.user
-                print("userid \(user?.userId)")
+//                print("userid \(user?.userId)")
+                    
+                NetworkManager.sI.getVotedFriends(userId: (user?.userId)!, friends: friends) {
+                        error, friends  in
+                    NVActivityIndicatorPresenter.stop()
+                        self.friends = friends
+                        print("success result get info \(friends)")
+                    self.tableView.reloadData()
                 }
-                print("success result get info \(json)")
+                    
+                }
             
                 
             } .onError {
+                NVActivityIndicatorPresenter.stop()
                 print("error result get info \($0)")
             }.send()
     }
@@ -44,14 +64,25 @@ class FriendsTVC: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        guard friends != nil else { return 0 }
+        return friends!.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsCell", for: indexPath) as! FriendsCell
 
-        // Configure the cell...
+        let friend = friends![indexPath.row]
+        
+        cell.labelName.text = friend.name
+        if friend.photo != nil  {
+            cell.imageViewAvatar.kf.setImage(with: URL.init(string: friend.photo!))
+        } else {
+            cell.imageViewAvatar.image = nil
+        }
+        
+        print(candidates)
+        cell.labelResult.text = "Выбор: " + (candidates?.first(where: { $0.number == friend.selectCandidate! })?.shortName)!
 
         return cell
     }

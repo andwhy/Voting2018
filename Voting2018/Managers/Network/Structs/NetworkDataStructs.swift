@@ -63,15 +63,15 @@ public struct ShareWall {
     var postText:String?
     var postImg:String?
     var postUrl:String?
-//    var isHide:Int?
-//    var isHideText:String?
+    var isHide:Int?
+    var isHideText:String?
 
     init(json: JSON) {
         self.postText = json["post_text"].string!
         self.postImg = json["post_img"].string!
         self.postUrl = json["post_url"].string!
-//        self.isHide = json["post_url"].string!
-//        self.isHideText = json["post_url"].string!
+        self.isHide = json["isHide"].int!
+        self.isHideText = json["isHideText"].string!
     }
 }
 
@@ -220,4 +220,12 @@ public struct CandidateDetailData {
         self.quantity = String.init(format: "%i", json["total_votes"].int!)
     }
 }
+
+public struct Friend {
+    var name:String?
+    var id:String?
+    var photo:String?
+    var selectCandidate: Int?
+}
+
 
