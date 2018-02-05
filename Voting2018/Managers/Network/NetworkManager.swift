@@ -104,6 +104,52 @@ class NetworkManager {
         }
     }
     
+    func getCandidateFullInfo(candidateNumber: Int, completionHandler: @escaping (ErrorWithDescription, [[CandidateDetailData]]?) -> Void) {
+        var parameters:[String : Any] = [:]
+        let url:String = NetworkManager.endPoint + "getStatistic"
+        
+        parameters["select_candidate"] = candidateNumber
+        
+        AlamofireManager.request(url,  method: .post, parameters: parameters, encoding: URLEncoding.httpBody).responseData { (response:DataResponse) in
+            
+            guard let responseValue = response.result.value else {
+                completionHandler(ErrorWithDescription(error: true, description: NetworkManager.errorDescriptionNothing), nil)
+                return
+            }
+            do {
+                let json = try JSON(data: responseValue)
+                if json["status"].string! == "OK" {
+                    print("getStatistic json \(json)")
+                    
+                    var candidateSex:[CandidateDetailData] = []
+                    var candidateAge:[CandidateDetailData] = []
+                    var candidateCity:[CandidateDetailData] = []
+                    var candidateCountry:[CandidateDetailData] = []
+
+                    for (_, subJson):(String, JSON) in json["sex"] {
+                        candidateSex.append(CandidateDetailData(json: subJson))
+                    }
+                    for (_, subJson):(String, JSON) in json["age"] {
+                        candidateAge.append(CandidateDetailData(json: subJson))
+                    }
+                    for (_, subJson):(String, JSON) in json["city"] {
+                        candidateCity.append(CandidateDetailData(json: subJson))
+                    }
+                    for (_, subJson):(String, JSON) in json["country"] {
+                        candidateCountry.append(CandidateDetailData(json: subJson))
+                    }
+
+                    completionHandler(ErrorWithDescription(error: false, description: NetworkManager.errorDescriptionNothing), [candidateCity, candidateCountry, candidateAge, candidateSex])
+                    return
+                }
+            }
+            catch {
+                completionHandler(ErrorWithDescription(error: true, description: NetworkManager.errorDescriptionNothing), nil)
+                return
+            }
+        }
+    }
+    
     
     func getShareInfo(completionHandler: @escaping (ErrorWithDescription, ShareWall?) -> Void) {
         let parameters:[String : Any] = [:]

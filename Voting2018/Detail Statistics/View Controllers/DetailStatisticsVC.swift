@@ -9,15 +9,17 @@
 import UIKit
 import Kingfisher
 
-class DetailStatisticsVC: UIViewController {
-
+class DetailStatisticsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet var imageViewAvatar: RoundedUIImageView!
     @IBOutlet var labelName: UILabel!
     @IBOutlet var labelAge: UILabel!
     @IBOutlet var labelVotes: UILabel!
     @IBOutlet var segmentedControlStatType: UISegmentedControl!
+    @IBOutlet var tableView: UITableView!
     
     var candidate: Candidate?
+    var candidateDetailData: [[CandidateDetailData]]?
     
     //MARK: Lifecycle
     
@@ -34,6 +36,12 @@ class DetailStatisticsVC: UIViewController {
         setAvatar(urlString: candidate?.photoPath)
         setVotes(text: String.init(format: "%i", (candidate?.allVotes)!))
         setAge(number: candidate?.age)
+        
+        NetworkManager.sI.getCandidateFullInfo(candidateNumber: (candidate?.number)!) { error, candidateFullInfo in
+            self.candidateDetailData = candidateFullInfo
+            self.tableView.reloadData()
+        }
+        
     }
     
     func setName(text: String?) {
@@ -46,7 +54,7 @@ class DetailStatisticsVC: UIViewController {
     
     func setVotes(text: String?) {
         if let text = text {
-            labelVotes.text = text
+            labelVotes.text = text + " голосов"
         } else {
             labelVotes.text = ""
         }
@@ -74,9 +82,34 @@ class DetailStatisticsVC: UIViewController {
         }
     }
 
-
-    
     //MARK: Actions
     @IBAction func actionSegmentedControlStatType(_ sender: Any) {
+        tableView.reloadData()
+    }
+    
+    
+    //MARK: TableView Delegate
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard candidateDetailData != nil else { return 0 }
+        return candidateDetailData![segmentedControlStatType.selectedSegmentIndex].count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailStatisticsCell", for: indexPath) as! DetailStatisticsCell
+
+        let item = candidateDetailData![segmentedControlStatType.selectedSegmentIndex][indexPath.row]
+        if segmentedControlStatType.selectedSegmentIndex != 3 {
+            cell.labelTitle.text = item.name
+        } else {
+            cell.labelTitle.text = item.name == "1" ? "Женщины" : "Мужчины"
+        }
+        cell.labelQuantity.text = item.quantity
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
 }

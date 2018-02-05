@@ -28,6 +28,10 @@
 		C773CAC1200E72CC0048C952 /* CandidatesSelectionCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C773CAC0200E72CC0048C952 /* CandidatesSelectionCVCell.swift */; };
 		C79FA2FE20139A8E00394582 /* OverallStatisticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79FA2FD20139A8E00394582 /* OverallStatisticsVC.swift */; };
 		C7BB41532023665C00C04250 /* StatisticsFilterTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BB41522023665C00C04250 /* StatisticsFilterTVC.swift */; };
+		C7BB41562027712C00C04250 /* DetailStatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BB41552027712C00C04250 /* DetailStatisticsCell.swift */; };
+		C7BB415A2027795700C04250 /* StopScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BB41592027795700C04250 /* StopScreenVC.swift */; };
+		C7BB415F202781D200C04250 /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BB415E202781D200C04250 /* FriendsCell.swift */; };
+		C7BB41612027823600C04250 /* FriendsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BB41602027823600C04250 /* FriendsTVC.swift */; };
 		C7CC11C62022F6D10065BE33 /* NVActivityIndicatorPresenter+Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC11C52022F6D10065BE33 /* NVActivityIndicatorPresenter+Show.swift */; };
 		C7CC11C82022FD830065BE33 /* IAPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC11C72022FD830065BE33 /* IAPHandler.swift */; };
 		E4DE9FE1706D7AE3BE3FF2BA /* Pods_Voting2018.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3849E653848B1BC45AC04B50 /* Pods_Voting2018.framework */; };
@@ -73,6 +77,11 @@
 		C773CAC0200E72CC0048C952 /* CandidatesSelectionCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidatesSelectionCVCell.swift; sourceTree = "<group>"; };
 		C79FA2FD20139A8E00394582 /* OverallStatisticsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallStatisticsVC.swift; sourceTree = "<group>"; };
 		C7BB41522023665C00C04250 /* StatisticsFilterTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsFilterTVC.swift; sourceTree = "<group>"; };
+		C7BB415420276CAC00C04250 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C7BB41552027712C00C04250 /* DetailStatisticsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStatisticsCell.swift; sourceTree = "<group>"; };
+		C7BB41592027795700C04250 /* StopScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopScreenVC.swift; sourceTree = "<group>"; };
+		C7BB415E202781D200C04250 /* FriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCell.swift; sourceTree = "<group>"; };
+		C7BB41602027823600C04250 /* FriendsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTVC.swift; sourceTree = "<group>"; };
 		C7CC11C52022F6D10065BE33 /* NVActivityIndicatorPresenter+Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NVActivityIndicatorPresenter+Show.swift"; sourceTree = "<group>"; };
 		C7CC11C72022FD830065BE33 /* IAPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHandler.swift; sourceTree = "<group>"; };
 		FC83B9203558047742786596 /* Pods_Voting2018UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Voting2018UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +154,7 @@
 		C73C059320165C1B005153F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C7BB41552027712C00C04250 /* DetailStatisticsCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,6 +201,8 @@
 				C79FA2FA20139A7700394582 /* Overall Statistics */,
 				C7BB414F2023664400C04250 /* Statistics Filter */,
 				C73C059120165C1B005153F1 /* Detail Statistics */,
+				C7BB41572027793F00C04250 /* Stop Screen */,
+				C7BB415B2027819D00C04250 /* Friends List */,
 				C766ACC9200C0365008EB0DE /* Managers */,
 				C73C059420165D4A005153F1 /* Helpers */,
 				C766ACAB200BFEFC008EB0DE /* LaunchScreen.storyboard */,
@@ -343,6 +355,47 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		C7BB41572027793F00C04250 /* Stop Screen */ = {
+			isa = PBXGroup;
+			children = (
+				C7BB41582027793F00C04250 /* View Controlles */,
+			);
+			path = "Stop Screen";
+			sourceTree = "<group>";
+		};
+		C7BB41582027793F00C04250 /* View Controlles */ = {
+			isa = PBXGroup;
+			children = (
+				C7BB41592027795700C04250 /* StopScreenVC.swift */,
+			);
+			path = "View Controlles";
+			sourceTree = "<group>";
+		};
+		C7BB415B2027819D00C04250 /* Friends List */ = {
+			isa = PBXGroup;
+			children = (
+				C7BB415D202781BB00C04250 /* View Controllers */,
+				C7BB415C202781BB00C04250 /* Views */,
+			);
+			path = "Friends List";
+			sourceTree = "<group>";
+		};
+		C7BB415C202781BB00C04250 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C7BB415E202781D200C04250 /* FriendsCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C7BB415D202781BB00C04250 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C7BB41602027823600C04250 /* FriendsTVC.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
 		FBADA752DC29A231524DF74B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,7 +475,6 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
 			);
 			mainGroup = C766AC96200BFEFC008EB0DE;
@@ -585,13 +637,17 @@
 				C73C059A20165F64005153F1 /* DetailStatisticsVC.swift in Sources */,
 				C766ACA3200BFEFC008EB0DE /* AppDelegate.swift in Sources */,
 				C710399B2022528D003ADD93 /* ShareOrBuyVC.swift in Sources */,
+				C7BB41562027712C00C04250 /* DetailStatisticsCell.swift in Sources */,
 				C7BB41532023665C00C04250 /* StatisticsFilterTVC.swift in Sources */,
+				C7BB41612027823600C04250 /* FriendsTVC.swift in Sources */,
 				C7CC11C82022FD830065BE33 /* IAPHandler.swift in Sources */,
 				C773CAC1200E72CC0048C952 /* CandidatesSelectionCVCell.swift in Sources */,
 				C7CC11C62022F6D10065BE33 /* NVActivityIndicatorPresenter+Show.swift in Sources */,
 				C773CAB8200E68130048C952 /* NetworkDataStructs.swift in Sources */,
 				C73C0590201657BA005153F1 /* AllVotesCell.swift in Sources */,
 				C73C059820165E33005153F1 /* RoundedUIView.swift in Sources */,
+				C7BB415F202781D200C04250 /* FriendsCell.swift in Sources */,
+				C7BB415A2027795700C04250 /* StopScreenVC.swift in Sources */,
 				C79FA2FE20139A8E00394582 /* OverallStatisticsVC.swift in Sources */,
 				C766ACCB200C0377008EB0DE /* ScreensManager.swift in Sources */,
 				C73C059620165D86005153F1 /* RoundedUIImageView.swift in Sources */,
@@ -625,6 +681,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C766ACAC200BFEFC008EB0DE /* Base */,
+				C7BB415420276CAC00C04250 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -636,6 +693,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -693,6 +751,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -747,6 +806,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2Q8DHH5FHX;
 				INFOPLIST_FILE = Voting2018/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.statselection.selections;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -763,6 +823,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2Q8DHH5FHX;
 				INFOPLIST_FILE = Voting2018/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.statselection.selections;
 				PRODUCT_NAME = "$(TARGET_NAME)";

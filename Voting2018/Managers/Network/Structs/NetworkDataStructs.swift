@@ -63,11 +63,15 @@ public struct ShareWall {
     var postText:String?
     var postImg:String?
     var postUrl:String?
+//    var isHide:Int?
+//    var isHideText:String?
 
     init(json: JSON) {
         self.postText = json["post_text"].string!
         self.postImg = json["post_img"].string!
         self.postUrl = json["post_url"].string!
+//        self.isHide = json["post_url"].string!
+//        self.isHideText = json["post_url"].string!
     }
 }
 
@@ -199,6 +203,21 @@ public struct User {
         } else {
             return false
         }
+    }
+}
+
+public struct CandidateDetailData {
+    
+    var name:String?
+    var quantity:String?
+    
+    init(json: JSON) {
+        if json["_id"]["value"].string != nil {
+            self.name = json["_id"]["value"].string!
+        } else {
+            self.name = String.init(format: "%i", json["_id"]["value"].int!)
+        }
+        self.quantity = String.init(format: "%i", json["total_votes"].int!)
     }
 }
 

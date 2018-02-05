@@ -31,9 +31,11 @@ class ShareOrBuyVC: UIViewController {
                 NVActivityIndicatorPresenter.stop()
                 print("Куплено или восстановлено")
                 
+                DispatchQueue.main.async {
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 appDelegate.user?.paidApp = true
                 appDelegate.user?.saveToKeychain()
+                }
                 
                 ScreensManager.sI.showStatisticsFlow()
             } else if type == .fetched {
@@ -72,9 +74,11 @@ class ShareOrBuyVC: UIViewController {
                     print("success result get info \(json)")
                     //                NVActivityIndicatorPresenter.stop()
                     
+                    DispatchQueue.main.async {
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     appDelegate.user?.sharedApp = true
                     appDelegate.user?.saveToKeychain()
+                    }
                     
                     ScreensManager.sI.showStatisticsFlow()
                 } .onError {
