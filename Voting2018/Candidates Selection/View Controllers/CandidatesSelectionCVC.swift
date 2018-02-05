@@ -143,6 +143,10 @@ class CandidatesSelectionCVC: UIViewController, UICollectionViewDelegate, UIColl
         }
         alertController.addAction(destroyAction)
         
+        alertController.popoverPresentationController?.sourceView = self.view
+        alertController.popoverPresentationController?.sourceRect = CGRect(x: self.view.frame.width / 2, y: self.view.frame.height - 60, width: 0, height: 0)
+//        alertController.popoverPresentationController?.permittedArrowDirections = .down
+        
         self.present(alertController, animated: true) {
             // ...
         }
