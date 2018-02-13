@@ -4,9 +4,9 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -56,16 +56,13 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="200" height="400"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DSe-8C-QKz">
-                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="200" id="Kap-zK-hmj"/>
-                                                            </constraints>
+                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="309"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="Имя Фамилия Отчество" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Woh-oq-9wu">
-                                                            <rect key="frame" x="20" y="210" width="160" height="145"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Имя Фамилия Отчество" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Woh-oq-9wu">
+                                                            <rect key="frame" x="20" y="319" width="160" height="36"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -73,13 +70,12 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="69 лет" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zi7-5k-Htl">
                                                             <rect key="frame" x="20" y="360" width="110" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <color key="textColor" name="TextNormalGray"/>
+                                                            <color key="textColor" red="0.51764705879999995" green="0.51764705879999995" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kly-44-jev" customClass="M13Checkbox" customModule="M13Checkbox">
                                                             <rect key="frame" x="150" y="360" width="30" height="30"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <color key="tintColor" name="VKBlue"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="FZt-WO-prw"/>
                                                                 <constraint firstAttribute="width" constant="30" id="J9w-NY-F0t"/>
@@ -150,11 +146,12 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sud-z5-3r0">
                                         <rect key="frame" x="40" y="10" width="295" height="60"/>
-                                        <color key="backgroundColor" name="VKBlue"/>
+                                        <color key="backgroundColor" red="0.35872220993041992" green="0.52562284469604492" blue="0.68237465620040894" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="NnW-6w-0pt"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="tintColor" red="0.35872220989999998" green="0.52562284469999998" blue="0.68237465620000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="ПРОГОЛОСОВАТЬ">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -202,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0J8-Ln-YkE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-769" y="-546"/>
+            <point key="canvasLocation" x="-770.39999999999998" y="-546.47676161919048"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8kj-2I-Ecc">
@@ -228,23 +225,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="JAH-KB-IAC">
-                                <rect key="frame" x="20" y="182" width="375" height="304"/>
+                                <rect key="frame" x="0.0" y="209" width="0.0" height="250"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Статистика" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egI-D4-oE4">
-                                        <rect key="frame" x="167.5" y="0.0" width="106" height="24"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="106" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" name="TextNormalGray"/>
+                                        <color key="textColor" red="0.51764705882352935" green="0.51764705882352935" blue="0.51764705882352935" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="Чтобы посмотреть результаты и статистику вам необходимо оставить пост на своей странице или купить PRO-версию." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyR-Vk-jwv">
-                                        <rect key="frame" x="0.0" y="44" width="375" height="54"/>
+                                        <rect key="frame" x="0.0" y="44" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" name="TextNormalGray"/>
+                                        <color key="textColor" red="0.51764705879999995" green="0.51764705879999995" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hki-ZN-ivO">
-                                        <rect key="frame" x="167.5" y="118" width="200" height="60"/>
-                                        <color key="backgroundColor" name="VKBlue"/>
+                                        <rect key="frame" x="0.0" y="64" width="200" height="60"/>
+                                        <color key="backgroundColor" red="0.35872220989999998" green="0.52562284469999998" blue="0.68237465620000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="1Cm-BJ-LHU"/>
                                             <constraint firstAttribute="width" constant="200" id="iv1-Re-1PC"/>
@@ -263,8 +260,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHu-NL-bIP">
-                                        <rect key="frame" x="167.5" y="198" width="200" height="60"/>
-                                        <color key="backgroundColor" name="VKBlue"/>
+                                        <rect key="frame" x="0.0" y="144" width="200" height="60"/>
+                                        <color key="backgroundColor" red="0.35872220989999998" green="0.52562284469999998" blue="0.68237465620000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="qVk-se-NnX"/>
                                             <constraint firstAttribute="height" constant="60" id="qZN-6W-iV6"/>
@@ -283,10 +280,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BqN-fc-pCu">
-                                        <rect key="frame" x="167.5" y="278" width="150" height="26"/>
+                                        <rect key="frame" x="0.0" y="224" width="150" height="26"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <state key="normal" title="ВОССТАНОВИТЬ ПОКУПКУ">
-                                            <color key="titleColor" name="TextLightGray"/>
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="actionButtonRestorePurchase:" destination="sZV-9H-YsH" eventType="touchUpInside" id="8uA-XY-bug"/>
@@ -312,7 +309,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgn-Sc-hcZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-770" y="143"/>
+            <point key="canvasLocation" x="-770" y="257"/>
         </scene>
         <!--Stop ScreenVC-->
         <scene sceneID="y1L-EJ-Qq5">
@@ -325,7 +322,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Доступ закрыт" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cah-kI-NaL">
                                 <rect key="frame" x="134.5" y="324.5" width="106.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" name="TextNormalGray"/>
+                                <color key="textColor" red="0.51764705879999995" green="0.51764705879999995" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -403,7 +400,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEy-LC-Zjo">
                                                     <rect key="frame" x="294.5" y="21" width="37.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" name="TextNormalGray"/>
+                                                    <color key="textColor" red="0.51764705879999995" green="0.51764705879999995" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -492,13 +489,13 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hao-fc-4ec">
                                             <rect key="frame" x="80" y="10" width="285" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" name="TextNormalGray"/>
+                                            <color key="textColor" red="0.51764705879999995" green="0.51764705879999995" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gji-tB-MiO">
                                             <rect key="frame" x="80" y="41" width="285" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" name="TextNormalGray"/>
+                                            <color key="textColor" red="0.51764705879999995" green="0.51764705879999995" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -565,7 +562,6 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVu-OH-0jC" customClass="M13Checkbox" customModule="M13Checkbox">
                                                                     <rect key="frame" x="10" y="10" width="20" height="20"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <color key="tintColor" name="VKBlue"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="CAv-5q-ce3"/>
                                                                         <constraint firstAttribute="width" constant="20" id="eoe-zm-icr"/>
@@ -594,7 +590,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Возраст" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2c-hw-6bl">
                                                                     <rect key="frame" x="40" y="10.5" width="325" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" name="TextNormalGray"/>
+                                                                    <color key="textColor" red="0.51764705879999995" green="0.51764705879999995" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -614,13 +610,13 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="От" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khl-Ur-3yd">
                                                                     <rect key="frame" x="10" y="10" width="19" height="40.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                    <color key="textColor" name="TextNormalGray"/>
+                                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L0D-Tz-MbL" customClass="RangeSeekSlider" customModule="RangeSeekSlider">
                                                                     <rect key="frame" x="39" y="10" width="296" height="40"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <color key="tintColor" name="VKBlue"/>
+                                                                    <color key="tintColor" red="0.35872220989999998" green="0.52562284469999998" blue="0.68237465620000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="40" id="7tE-C1-M1E"/>
                                                                     </constraints>
@@ -636,7 +632,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="До" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfo-a8-Am9">
                                                                     <rect key="frame" x="345" y="10" width="20" height="40"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                    <color key="textColor" name="TextNormalGray"/>
+                                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -681,7 +677,6 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qt3-no-XXG" customClass="M13Checkbox" customModule="M13Checkbox">
                                                                     <rect key="frame" x="10" y="10" width="20" height="20"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <color key="tintColor" name="VKBlue"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="20" id="Afp-KL-4fZ"/>
                                                                         <constraint firstAttribute="height" constant="20" id="fhZ-zp-3w7"/>
@@ -710,7 +705,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пол" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uu1-EG-58u">
                                                                     <rect key="frame" x="40" y="10" width="325" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" name="TextNormalGray"/>
+                                                                    <color key="textColor" red="0.51764705879999995" green="0.51764705879999995" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -736,7 +731,6 @@
                                                                         <segment title="Мужчины"/>
                                                                         <segment title="Женщины"/>
                                                                     </segments>
-                                                                    <color key="tintColor" name="VKBlue"/>
                                                                     <connections>
                                                                         <action selector="actionSegmentGender:" destination="zTi-jr-6No" eventType="valueChanged" id="C55-xL-yCj"/>
                                                                     </connections>
@@ -850,7 +844,6 @@
                                             <segment title="Возраст"/>
                                             <segment title="Пол"/>
                                         </segments>
-                                        <color key="tintColor" name="VKBlue"/>
                                         <connections>
                                             <action selector="actionSegmentedControlStatType:" destination="cup-Ue-WJJ" eventType="valueChanged" id="ZPe-yO-RxG"/>
                                         </connections>
@@ -869,13 +862,13 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYg-6w-P6k">
                                                             <rect key="frame" x="10" y="10" width="42" height="23.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" name="TextNormalGray"/>
+                                                            <color key="textColor" red="0.51764705879999995" green="0.51764705879999995" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ez-ch-jDc">
                                                             <rect key="frame" x="323" y="10" width="42" height="23.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" name="TextNormalGray"/>
+                                                            <color key="textColor" red="0.51764705879999995" green="0.51764705879999995" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -944,16 +937,5 @@
             <point key="canvasLocation" x="990" y="183"/>
         </scene>
     </scenes>
-    <resources>
-        <namedColor name="TextLightGray">
-            <color red="0.70980392156862748" green="0.70980392156862748" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="TextNormalGray">
-            <color red="0.51764705879999995" green="0.51764705879999995" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="VKBlue">
-            <color red="0.30588235294117649" green="0.52941176470588236" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
-    <color key="tintColor" name="VKBlue"/>
+    <color key="tintColor" red="0.35872220989999998" green="0.52562284469999998" blue="0.68237465620000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

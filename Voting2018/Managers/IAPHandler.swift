@@ -14,6 +14,7 @@ enum IAPHandlerEvent{
     case purchased
     case fetched
     case failed
+    case finished
 }
 
 
@@ -77,7 +78,7 @@ extension IAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
     }
     
     func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
-        purchaseStatusBlock?(.restored)
+        purchaseStatusBlock?(.finished)
     }
     
     func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
@@ -104,6 +105,7 @@ extension IAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
                 case .restored:
                     print("restored")
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
+                    purchaseStatusBlock?(.restored)
                     break
                     
                 default: break

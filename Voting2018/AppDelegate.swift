@@ -23,7 +23,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setUpSDKs()
         setupNVActivityIndicator()
         
-        if VK.sessions.default.state == .authorized {
+        if VK.sessions.default.state == .authorized || user?.userToken != nil {
+            
+            if VK.sessions.default.state != .authorized {
+                do {
+                    try VK.sessions.default.logIn(rawToken: (user?.userToken!)!, expires: 0)
+//                    print("login success")
+                } catch {
+                    print("login error")
+                    ScreensManager.sI.showAuthFlow()
+                    return false
+                }
+            }
             if user!.isAlreadyVoted() {
                 if user!.isSharedOrPaid() {
                     ScreensManager.sI.showStatisticsFlow()
@@ -37,9 +48,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             ScreensManager.sI.showAuthFlow()
         }
-//        ScreensManager.sI.showShareOrBuyFlow()
-//                    ScreensManager.sI.showAuthFlow()
-//        ScreensManager.sI.showStatisticsFlow(candidatesFilter: nil)
+
+        
+        ScreensManager.sI.showShareOrBuyFlow()
+
+        
         print("user from app delegate \(user)")
         
         return true
@@ -47,7 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func setupNVActivityIndicator() {
         NVActivityIndicatorView.DEFAULT_BLOCKER_BACKGROUND_COLOR = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
-//        NVActivityIndicatorView.DEFAULT_COLOR = UIColor.init(named: "VKBlue")!
         NVActivityIndicatorView.DEFAULT_TYPE = .lineSpinFadeLoader
     }
     

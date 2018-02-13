@@ -41,7 +41,7 @@ class NetworkManager {
             do {
                 let json = try JSON(data: responseValue)
                 if json["status"].string! == "OK" {
-                    print("getCandidates json \(json)")
+//                    print("getCandidates json \(json)")
                     
                     var candidates:[Candidate] = []
                     

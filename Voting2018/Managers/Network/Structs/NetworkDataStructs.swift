@@ -214,8 +214,10 @@ public struct CandidateDetailData {
     init(json: JSON) {
         if json["_id"]["value"].string != nil {
             self.name = json["_id"]["value"].string!
-        } else {
+        } else if json["_id"]["value"].int != nil {
             self.name = String.init(format: "%i", json["_id"]["value"].int!)
+        } else {
+            self.name = ""
         }
         self.quantity = String.init(format: "%i", json["total_votes"].int!)
     }

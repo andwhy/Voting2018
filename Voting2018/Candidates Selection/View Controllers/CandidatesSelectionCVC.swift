@@ -24,10 +24,9 @@ class CandidatesSelectionCVC: UIViewController, UICollectionViewDelegate, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let collectionViewFlowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
-            collectionViewFlowLayout.estimatedItemSize = CGSize(width: 100, height: 100)
-        }
-        
+//        if let collectionViewFlowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
+//            collectionViewFlowLayout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,14 +49,18 @@ class CandidatesSelectionCVC: UIViewController, UICollectionViewDelegate, UIColl
 
                 self.candidates = resultCandidates
                 
+//                print("self.candidates \(self.candidates)")
+                
                 self.updateTitle()
                 
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 if let alreadySelectedCandidate = appDelegate.user?.selectCandidate {
                     self.selectedCandidate = candidates?.first(where: { $0.number == alreadySelectedCandidate })
                 }
-    
-                self.collectionView?.reloadData()
+                
+                DispatchQueue.main.async {
+                    self.collectionView?.reloadData()
+                }
                 _ = self.updateButtonVoteAndGetIsEnabledState()
             }
         }
@@ -66,8 +69,13 @@ class CandidatesSelectionCVC: UIViewController, UICollectionViewDelegate, UIColl
     
 
     // MARK: UICollectionViewDataSource
-
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: ((self.view.frame.width / 2) - 10 - 5), height: self.view.frame.height / 2.5);
+    }
+    
      func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("candidates.count \(candidates.count)")
         return candidates.count
     }
 
