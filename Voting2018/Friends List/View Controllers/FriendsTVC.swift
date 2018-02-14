@@ -42,8 +42,9 @@ class FriendsTVC: UITableViewController {
                 DispatchQueue.main.async {
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 let user = appDelegate.user
-//                print("userid \(user?.userId)")
-                    
+                print("userid \(user?.userId)")
+                    print("user \(user)")
+
                 NetworkManager.sI.getVotedFriends(userId: (user?.userId)!, friends: friends) {
                         error, friends  in
                     NVActivityIndicatorPresenter.stop()

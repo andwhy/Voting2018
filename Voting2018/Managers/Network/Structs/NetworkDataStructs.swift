@@ -212,12 +212,12 @@ public struct CandidateDetailData {
     var quantity:String?
     
     init(json: JSON) {
-        if json["_id"]["value"].string != nil {
+        if json["_id"]["value"].string != nil && json["_id"]["value"].string != "" {
             self.name = json["_id"]["value"].string!
         } else if json["_id"]["value"].int != nil {
             self.name = String.init(format: "%i", json["_id"]["value"].int!)
         } else {
-            self.name = ""
+            self.name = "Не определено"
         }
         self.quantity = String.init(format: "%i", json["total_votes"].int!)
     }

@@ -21,6 +21,11 @@ class OverallStatisticsVC: UIViewController, PieChartDelegate, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let user = appDelegate.user
+        print("self.user \(user)")
+
+        
         updateData()
         
         viewPieChart.innerRadius = self.view.frame.width/8

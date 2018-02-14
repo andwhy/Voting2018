@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if VK.sessions.default.state != .authorized {
                 do {
                     try VK.sessions.default.logIn(rawToken: (user?.userToken!)!, expires: 0)
-//                    print("login success")
+                    print("login success")
                 } catch {
                     print("login error")
                     ScreensManager.sI.showAuthFlow()
@@ -49,9 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ScreensManager.sI.showAuthFlow()
         }
 
-        
-        ScreensManager.sI.showShareOrBuyFlow()
-
+    
         
         print("user from app delegate \(user)")
         
