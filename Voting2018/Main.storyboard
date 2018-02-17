@@ -225,22 +225,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="JAH-KB-IAC">
-                                <rect key="frame" x="0.0" y="209" width="0.0" height="250"/>
+                                <rect key="frame" x="20" y="200" width="335" height="268"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Статистика" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egI-D4-oE4">
-                                        <rect key="frame" x="0.0" y="0.0" width="106" height="24"/>
+                                        <rect key="frame" x="114.5" y="0.0" width="106" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.51764705882352935" green="0.51764705882352935" blue="0.51764705882352935" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="Чтобы посмотреть результаты и статистику вам необходимо оставить пост на своей странице или купить PRO-версию." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyR-Vk-jwv">
-                                        <rect key="frame" x="0.0" y="44" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="-20" y="44" width="0.0" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.51764705879999995" green="0.51764705879999995" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hki-ZN-ivO">
-                                        <rect key="frame" x="0.0" y="64" width="200" height="60"/>
+                                        <rect key="frame" x="67.5" y="82" width="200" height="60"/>
                                         <color key="backgroundColor" red="0.35872220989999998" green="0.52562284469999998" blue="0.68237465620000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="1Cm-BJ-LHU"/>
@@ -260,7 +260,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHu-NL-bIP">
-                                        <rect key="frame" x="0.0" y="144" width="200" height="60"/>
+                                        <rect key="frame" x="67.5" y="162" width="200" height="60"/>
                                         <color key="backgroundColor" red="0.35872220989999998" green="0.52562284469999998" blue="0.68237465620000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="qVk-se-NnX"/>
@@ -280,7 +280,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BqN-fc-pCu">
-                                        <rect key="frame" x="0.0" y="224" width="150" height="26"/>
+                                        <rect key="frame" x="92.5" y="242" width="150" height="26"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <state key="normal" title="ВОССТАНОВИТЬ ПОКУПКУ">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -525,10 +525,66 @@
                             <outlet property="delegate" destination="Ete-sl-WAt" id="5P6-5s-395"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="emptyTableView" destination="wDi-Zp-Zht" id="zlV-45-wxv"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NLR-TF-NO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="wDi-Zp-Zht">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="300"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Список пуст" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2M-Hb-BMA">
+                            <rect key="frame" x="10" y="61" width="220" height="24"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" red="0.51764705879999995" green="0.51764705879999995" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9RF-dR-Nz9">
+                            <rect key="frame" x="20" y="215" width="200" height="60"/>
+                            <color key="backgroundColor" red="0.35872220989999998" green="0.52562284469999998" blue="0.68237465620000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="0us-WM-1ak"/>
+                                <constraint firstAttribute="width" constant="200" id="goh-5R-Zg2"/>
+                            </constraints>
+                            <state key="normal" title="ОПУБЛИКОВАТЬ ПОСТ">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="actionButtonShare:" destination="Ete-sl-WAt" eventType="touchUpInside" id="4yb-Xl-GYm"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="Ваши друзья еще не проголосовали. Расскажите друзьям об этом приложении оставив пост на своей странице." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OwV-de-Z9D">
+                            <rect key="frame" x="10" y="105" width="220" height="90"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.51764705879999995" green="0.51764705879999995" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="9RF-dR-Nz9" firstAttribute="centerX" secondItem="wDi-Zp-Zht" secondAttribute="centerX" id="1kE-QH-4X8"/>
+                        <constraint firstItem="OwV-de-Z9D" firstAttribute="centerY" secondItem="wDi-Zp-Zht" secondAttribute="centerY" id="GHX-Sj-2Mu"/>
+                        <constraint firstAttribute="trailing" secondItem="OwV-de-Z9D" secondAttribute="trailing" constant="10" id="NlH-UE-fG2"/>
+                        <constraint firstItem="OwV-de-Z9D" firstAttribute="leading" secondItem="wDi-Zp-Zht" secondAttribute="leading" constant="10" id="X1V-Ur-2bl"/>
+                        <constraint firstItem="NAG-zF-3m7" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9RF-dR-Nz9" secondAttribute="bottom" constant="10" id="hcR-vS-TYg"/>
+                        <constraint firstItem="OwV-de-Z9D" firstAttribute="top" secondItem="u2M-Hb-BMA" secondAttribute="bottom" constant="20" id="iFS-zW-Hfi"/>
+                        <constraint firstItem="u2M-Hb-BMA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="NAG-zF-3m7" secondAttribute="top" constant="10" id="lfi-j6-Zfl"/>
+                        <constraint firstItem="u2M-Hb-BMA" firstAttribute="leading" secondItem="NAG-zF-3m7" secondAttribute="leading" constant="10" id="nSd-Wx-lxc"/>
+                        <constraint firstItem="OwV-de-Z9D" firstAttribute="centerX" secondItem="wDi-Zp-Zht" secondAttribute="centerX" id="nWI-9e-6eL"/>
+                        <constraint firstItem="9RF-dR-Nz9" firstAttribute="top" secondItem="OwV-de-Z9D" secondAttribute="bottom" constant="20" id="wbC-Rl-Na0"/>
+                        <constraint firstItem="NAG-zF-3m7" firstAttribute="trailing" secondItem="u2M-Hb-BMA" secondAttribute="trailing" constant="10" id="x4v-PL-2bX"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="NAG-zF-3m7"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="1813.5999999999999" y="-316.19190404797604"/>
+            <point key="canvasLocation" x="1814" y="313"/>
         </scene>
         <!--Statistics FilterTVC-->
         <scene sceneID="vTi-jH-YDe">

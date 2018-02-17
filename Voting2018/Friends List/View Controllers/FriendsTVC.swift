@@ -16,6 +16,7 @@ class FriendsTVC: UITableViewController {
 
     var friends: [Friend]?
     var candidates: [Candidate]?
+    @IBOutlet var emptyTableView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,54 @@ class FriendsTVC: UITableViewController {
         
         self.title = "Голоса друзей"
         updateData()
+        
+    }
+    
+    @IBAction func actionButtonShare(_ sender: Any) {
+        NVActivityIndicatorPresenter.start()
+        NetworkManager.sI.getShareInfo() { error, shareWall in
+            NVActivityIndicatorPresenter.stop()
+            guard let shareWall = shareWall else { return }
+            
+            print(shareWall.postUrl! + "," + shareWall.postImg!)
+            
+            VK.API.Wall.post([
+                .message: shareWall.postText,
+                .attachments : shareWall.postUrl! + "," + shareWall.postImg!
+                ]).onSuccess { result in
+                    let json = try JSON(data: result)
+                    print("success result get info \(json)")
+                    //                NVActivityIndicatorPresenter.stop()
+                    
+                    DispatchQueue.main.async {
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        appDelegate.user?.sharedApp = true
+                        appDelegate.user?.saveToKeychain()
+                        
+                        let alertController = UIAlertController(title: "Пост опубликован", message:"С вашей помощью статистика станет еще более полной!", preferredStyle: .alert)
+                        
+                        let OKAction = UIAlertAction(title: "Ок", style: .default) { action in
+                        }
+                        alertController.addAction(OKAction)
+                        
+                        self.present(alertController, animated: true) {}
+                    }
+                    
+                } .onError {
+                    print("error result get info \($0)")
+                    //                NVActivityIndicatorPresenter.stop()
+                }.send()
+        }
+    }
+    
+    func updateEmptyView() {
+        if friends != nil && friends!.count > 0 {
+            tableView.backgroundView = UIView()
+            tableView.separatorStyle = .singleLine
+        } else {
+            tableView.backgroundView = emptyTableView
+            tableView.separatorStyle = .none
+        }
     }
     
     func updateData() {
@@ -59,6 +108,7 @@ class FriendsTVC: UITableViewController {
                         self.friends = friends
                         print("success result get info \(friends)")
                     self.tableView.reloadData()
+                    self.updateEmptyView()
                 }
                     
                 }
