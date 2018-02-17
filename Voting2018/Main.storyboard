@@ -867,49 +867,69 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5OA-hu-HPz">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hlx-iq-ks7" customClass="RoundedUIImageView" customModule="Voting2018" customModuleProvider="target">
-                                        <rect key="frame" x="112.5" y="30" width="150" height="150"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="Ade-Vu-BLo"/>
-                                            <constraint firstAttribute="height" constant="150" id="Lv3-py-kly"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtb-dh-IC8">
-                                        <rect key="frame" x="163.5" y="200" width="48" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfh-o4-JwE">
-                                        <rect key="frame" x="166" y="234" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uGR-19-qiJ">
-                                        <rect key="frame" x="163.5" y="265" width="48" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4Gr-9H-ish">
-                                        <rect key="frame" x="20" y="309" width="335" height="29"/>
-                                        <segments>
-                                            <segment title="Город"/>
-                                            <segment title="Страна"/>
-                                            <segment title="Возраст"/>
-                                            <segment title="Пол"/>
-                                        </segments>
-                                        <connections>
-                                            <action selector="actionSegmentedControlStatType:" destination="cup-Ue-WJJ" eventType="valueChanged" id="ZPe-yO-RxG"/>
-                                        </connections>
-                                    </segmentedControl>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jic-KO-gaZ">
-                                        <rect key="frame" x="0.0" y="357" width="375" height="290"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <view key="tableHeaderView" contentMode="scaleToFill" id="uVF-aL-PjY">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="347"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hlx-iq-ks7" customClass="RoundedUIImageView" customModule="Voting2018" customModuleProvider="target">
+                                                    <rect key="frame" x="112.5" y="20" width="150" height="150"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="150" id="Ade-Vu-BLo"/>
+                                                        <constraint firstAttribute="height" constant="150" id="Lv3-py-kly"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtb-dh-IC8">
+                                                    <rect key="frame" x="163.5" y="190" width="48" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfh-o4-JwE">
+                                                    <rect key="frame" x="166" y="224" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uGR-19-qiJ">
+                                                    <rect key="frame" x="163.5" y="255" width="48" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4Gr-9H-ish">
+                                                    <rect key="frame" x="20" y="299" width="335" height="29"/>
+                                                    <segments>
+                                                        <segment title="Город"/>
+                                                        <segment title="Страна"/>
+                                                        <segment title="Возраст"/>
+                                                        <segment title="Пол"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="actionSegmentedControlStatType:" destination="cup-Ue-WJJ" eventType="valueChanged" id="ZPe-yO-RxG"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="4Gr-9H-ish" firstAttribute="leading" secondItem="uVF-aL-PjY" secondAttribute="leading" constant="20" id="0Ab-Pv-jKz"/>
+                                                <constraint firstItem="hlx-iq-ks7" firstAttribute="top" secondItem="uVF-aL-PjY" secondAttribute="top" constant="20" id="5WL-xa-vo1"/>
+                                                <constraint firstItem="rtb-dh-IC8" firstAttribute="centerX" secondItem="uVF-aL-PjY" secondAttribute="centerX" id="6zx-x2-aRZ"/>
+                                                <constraint firstItem="rtb-dh-IC8" firstAttribute="top" secondItem="hlx-iq-ks7" secondAttribute="bottom" constant="20" id="E1t-FK-IRz"/>
+                                                <constraint firstAttribute="trailing" secondItem="4Gr-9H-ish" secondAttribute="trailing" constant="20" id="LDZ-yR-WVY"/>
+                                                <constraint firstItem="yfh-o4-JwE" firstAttribute="centerX" secondItem="uVF-aL-PjY" secondAttribute="centerX" id="WqF-zv-If7"/>
+                                                <constraint firstItem="uGR-19-qiJ" firstAttribute="centerX" secondItem="uVF-aL-PjY" secondAttribute="centerX" id="ges-PM-sqc"/>
+                                                <constraint firstItem="4Gr-9H-ish" firstAttribute="top" secondItem="uGR-19-qiJ" secondAttribute="bottom" constant="20" id="j2j-xz-UoO"/>
+                                                <constraint firstItem="hlx-iq-ks7" firstAttribute="centerX" secondItem="uVF-aL-PjY" secondAttribute="centerX" id="jFS-X2-YKr"/>
+                                                <constraint firstItem="uGR-19-qiJ" firstAttribute="top" secondItem="yfh-o4-JwE" secondAttribute="bottom" constant="10" id="mu1-ML-c0F"/>
+                                                <constraint firstItem="yfh-o4-JwE" firstAttribute="top" secondItem="rtb-dh-IC8" secondAttribute="bottom" constant="10" id="o9X-1k-pES"/>
+                                            </constraints>
+                                        </view>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailStatisticsCell" id="Izb-pt-vbw" customClass="DetailStatisticsCell" customModule="Voting2018" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                                <rect key="frame" x="0.0" y="375" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Izb-pt-vbw" id="6fE-sf-ZUB">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -952,21 +972,10 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="4Gr-9H-ish" firstAttribute="top" secondItem="uGR-19-qiJ" secondAttribute="bottom" constant="20" id="2iG-XV-a5i"/>
-                                    <constraint firstItem="rtb-dh-IC8" firstAttribute="centerX" secondItem="5OA-hu-HPz" secondAttribute="centerX" id="51f-KV-MPE"/>
                                     <constraint firstItem="Jic-KO-gaZ" firstAttribute="leading" secondItem="5OA-hu-HPz" secondAttribute="leading" id="GdY-Vr-7PH"/>
                                     <constraint firstAttribute="bottom" secondItem="Jic-KO-gaZ" secondAttribute="bottom" id="Hp8-Se-sTu"/>
-                                    <constraint firstItem="uGR-19-qiJ" firstAttribute="centerX" secondItem="5OA-hu-HPz" secondAttribute="centerX" id="LJv-XQ-BQh"/>
-                                    <constraint firstItem="yfh-o4-JwE" firstAttribute="top" secondItem="rtb-dh-IC8" secondAttribute="bottom" constant="10" id="ZqZ-Tf-cJR"/>
-                                    <constraint firstAttribute="trailing" secondItem="4Gr-9H-ish" secondAttribute="trailing" constant="20" id="hca-Tz-PpX"/>
-                                    <constraint firstItem="Jic-KO-gaZ" firstAttribute="top" secondItem="4Gr-9H-ish" secondAttribute="bottom" constant="20" id="iyO-zq-5gp"/>
-                                    <constraint firstItem="4Gr-9H-ish" firstAttribute="leading" secondItem="5OA-hu-HPz" secondAttribute="leading" constant="20" id="jBa-YX-St9"/>
                                     <constraint firstAttribute="trailing" secondItem="Jic-KO-gaZ" secondAttribute="trailing" id="pyL-id-wzW"/>
-                                    <constraint firstItem="uGR-19-qiJ" firstAttribute="top" secondItem="yfh-o4-JwE" secondAttribute="bottom" constant="10" id="qDl-sE-M5V"/>
-                                    <constraint firstItem="hlx-iq-ks7" firstAttribute="centerX" secondItem="5OA-hu-HPz" secondAttribute="centerX" id="s0i-Ov-atK"/>
-                                    <constraint firstItem="rtb-dh-IC8" firstAttribute="top" secondItem="hlx-iq-ks7" secondAttribute="bottom" constant="20" id="tWz-FX-TDF"/>
-                                    <constraint firstItem="hlx-iq-ks7" firstAttribute="top" secondItem="5OA-hu-HPz" secondAttribute="top" constant="30" id="vHg-q4-jjH"/>
-                                    <constraint firstItem="yfh-o4-JwE" firstAttribute="centerX" secondItem="5OA-hu-HPz" secondAttribute="centerX" id="zBq-MX-0SX"/>
+                                    <constraint firstItem="Jic-KO-gaZ" firstAttribute="top" secondItem="5OA-hu-HPz" secondAttribute="top" id="wos-dx-Onq"/>
                                 </constraints>
                             </view>
                         </subviews>
