@@ -9,6 +9,7 @@
 import UIKit
 import M13Checkbox
 import RangeSeekSlider
+import StoreKit
 
 class StatisticsFilterTVC: UITableViewController, RangeSeekSliderDelegate {
 
@@ -25,6 +26,13 @@ class StatisticsFilterTVC: UITableViewController, RangeSeekSliderDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if #available(iOS 10.3, *) {
+            if !UserDefaults.standard.bool(forKey: "filterScreenRate") {
+                SKStoreReviewController.requestReview()
+                UserDefaults.standard.set(true, forKey: "filterScreenRate")
+            }
+        }
         
         sliderAge.numberFormatter.positiveSuffix = " лет"
         sliderAge.delegate = self

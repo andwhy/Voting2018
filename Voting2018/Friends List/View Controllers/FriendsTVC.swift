@@ -10,6 +10,7 @@ import UIKit
 import SwiftyVK
 import SwiftyJSON
 import NVActivityIndicatorView
+import StoreKit
 
 class FriendsTVC: UITableViewController {
 
@@ -19,6 +20,13 @@ class FriendsTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if #available(iOS 10.3, *) {
+            if !UserDefaults.standard.bool(forKey: "friendsScreenRate") {
+                SKStoreReviewController.requestReview()
+                UserDefaults.standard.set(true, forKey: "friendsScreenRate")
+            }
+        }
+        
         self.title = "Голоса друзей"
         updateData()
     }

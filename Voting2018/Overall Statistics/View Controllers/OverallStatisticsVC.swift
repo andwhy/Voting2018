@@ -10,6 +10,8 @@ import UIKit
 import PieCharts
 import SwiftHEXColors
 import NVActivityIndicatorView
+import SwiftyVK
+import SwiftyJSON
 
 class OverallStatisticsVC: UIViewController, PieChartDelegate, UITableViewDelegate, UITableViewDataSource {
  
@@ -21,11 +23,12 @@ class OverallStatisticsVC: UIViewController, PieChartDelegate, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let user = appDelegate.user
-        print("self.user \(user)")
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let user = appDelegate.user
+//        print("self.user \(user)")
 
         
+        showGroupInviteAlert()
         updateData()
         
         viewPieChart.innerRadius = self.view.frame.width/8
@@ -37,6 +40,38 @@ class OverallStatisticsVC: UIViewController, PieChartDelegate, UITableViewDelega
         
         self.tableView.tableHeaderView?.frame = CGRect(x: (self.tableView.tableHeaderView?.frame.origin.x)!, y: (self.tableView.tableHeaderView?.frame.origin.y)!, width: (self.tableView.tableHeaderView?.frame.width)!, height: self.view.frame.width)
         
+    }
+    
+    func showGroupInviteAlert() {
+        
+        if !UserDefaults.standard.bool(forKey: "overallStatScreenGroupInvite") {
+
+        let alertController = UIAlertController(title: "", message: "Хотите вступить в нашу официальную группу 'Выборы для ВК 2018'?", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Нет", style: .default) { action in
+        }
+        alertController.addAction(cancelAction)
+        
+        let OKAction = UIAlertAction(title: "Да", style: .default) { action in
+            VK.API.Groups.join([.groupId: "161337743" ]).onSuccess { result in
+                let json = try JSON(data: result)
+                print("success result get info \(json)")
+                
+                } .onError {
+                    print("error result get info \($0)")
+                }.send()
+        }
+        alertController.addAction(OKAction)
+        
+        
+//        alertController.popoverPresentationController?.sourceView = self.view
+//        alertController.popoverPresentationController?.sourceRect = CGRect(x: self.view.frame.width / 2, y: self.view.frame.height - 60, width: 0, height: 0)
+
+        
+        self.present(alertController, animated: true) {
+        }
+            UserDefaults.standard.set(true, forKey: "overallStatScreenGroupInvite")
+        }
     }
 
     func updateTitle() {

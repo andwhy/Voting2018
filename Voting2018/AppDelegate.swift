@@ -127,6 +127,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func application(
+        _ application: UIApplication,
+        open url: URL,
+        sourceApplication: String?,
+        annotation: Any
+        ) -> Bool {
+        VK.handle(url: url, sourceApplication: sourceApplication)
+        return true
+    }
+    
 }
 

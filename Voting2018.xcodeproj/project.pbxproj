@@ -53,7 +53,7 @@
 		61C60E31792F8F07E7123D0E /* Pods-Voting2018.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voting2018.release.xcconfig"; path = "Pods/Target Support Files/Pods-Voting2018/Pods-Voting2018.release.xcconfig"; sourceTree = "<group>"; };
 		6D8021DAE8469B705E947426 /* Pods-Voting2018UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voting2018UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Voting2018UITests/Pods-Voting2018UITests.release.xcconfig"; sourceTree = "<group>"; };
 		A32FC1BDB151857FF21EDCA6 /* Pods-Voting2018UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Voting2018UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Voting2018UITests/Pods-Voting2018UITests.debug.xcconfig"; sourceTree = "<group>"; };
-		C710399A2022528D003ADD93 /* ShareOrBuyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShareOrBuyVC.swift; path = "View Controllers/ShareOrBuyVC.swift"; sourceTree = "<group>"; };
+		C710399A2022528D003ADD93 /* ShareOrBuyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareOrBuyVC.swift; sourceTree = "<group>"; };
 		C73C058F201657BA005153F1 /* AllVotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllVotesCell.swift; sourceTree = "<group>"; };
 		C73C059520165D86005153F1 /* RoundedUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUIImageView.swift; sourceTree = "<group>"; };
 		C73C059720165E33005153F1 /* RoundedUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUIView.swift; sourceTree = "<group>"; };
@@ -122,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				C710399920225270003ADD93 /* View Controllers */,
-				C710399A2022528D003ADD93 /* ShareOrBuyVC.swift */,
 			);
 			path = "Share Or Buy";
 			sourceTree = "<group>";
@@ -130,6 +129,7 @@
 		C710399920225270003ADD93 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C710399A2022528D003ADD93 /* ShareOrBuyVC.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
